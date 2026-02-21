@@ -31,7 +31,6 @@
   /* ── PAGE SHELL ── */
   .page {
     width: 816px;
-    min-height: 1056px;
     height: 1056px;
     background: var(--white);
     margin: 24px auto;
@@ -44,18 +43,21 @@
 
   /* ══════════════════════════════════════════
      SHARED: INNER PAGE HEADER (pages 2–5)
+     CONSISTENT ACROSS ALL PAGES:
+     - section label: green, 9.5px, uppercase, letter-spacing 0.22em
+     - title: 26px, weight 900, white base with optional .green/.blue spans
+     - logo: height 36px, width auto (no stretching), top-right
+     - followed by 2px green rule
   ══════════════════════════════════════════ */
   .inner-header {
     background: var(--dark);
-    padding: 16px 32px 14px;
+    padding: 14px 32px 12px;
     flex-shrink: 0;
-    position: relative;
   }
   .inner-header-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 4px;
   }
   .inner-header-section {
     font-size: 9.5px;
@@ -73,12 +75,16 @@
   }
   .inner-header-title .green { color: var(--green); }
   .inner-header-title .blue  { color: var(--blue); }
+  /* Logo: fixed height, auto width — no stretching */
   .inner-header-logo {
     height: 36px;
     width: auto;
+    max-width: 160px;
     object-fit: contain;
+    object-position: right center;
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 2px;
+    margin-left: 16px;
   }
   .inner-header-pills {
     display: flex;
@@ -109,27 +115,15 @@
   .page-footer {
     background: #F0F0F0;
     border-top: 1px solid #DDDDDD;
-    padding: 8px 32px;
+    padding: 7px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
   }
-  .footer-left {
-    font-size: 9px;
-    color: #666666;
-    font-weight: 500;
-  }
-  .footer-center {
-    font-size: 9px;
-    color: var(--green);
-    font-weight: 600;
-  }
-  .footer-right {
-    font-size: 9px;
-    color: #666666;
-    font-weight: 500;
-  }
+  .footer-left   { font-size: 9px; color: #666; font-weight: 500; }
+  .footer-center { font-size: 9px; color: var(--green); font-weight: 600; }
+  .footer-right  { font-size: 9px; color: #666; font-weight: 500; }
 
   /* ── PAGE BODY ── */
   .page-body {
@@ -138,6 +132,7 @@
     flex-direction: column;
     overflow: hidden;
     background: var(--white);
+    min-height: 0;
   }
 
   /* ══════════════════════════════════════════
@@ -147,82 +142,134 @@
     flex-direction: row;
   }
 
+  /* LEFT PANEL */
   .cover-left {
-    width: 330px;
-    min-width: 330px;
+    width: 320px;
+    min-width: 320px;
     background: var(--dark);
     display: flex;
     flex-direction: column;
-    padding: 36px 28px 28px;
+    padding: 28px 24px 28px;
   }
+  /* Logo: natural aspect ratio, not stretched */
   .cover-logo {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
   .cover-logo img {
-    height: 48px;
+    height: 52px;
     width: auto;
-    display: block;
+    max-width: 200px;
     object-fit: contain;
+    object-position: left center;
+    display: block;
   }
   .cover-series {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--blue);
     letter-spacing: 0.05em;
     margin-bottom: 4px;
   }
   .cover-title {
-    font-size: 46px;
+    font-size: 48px;
     font-weight: 900;
     color: var(--white);
     line-height: 1.0;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     letter-spacing: -0.02em;
   }
   .cover-desc {
-    font-size: 11px;
-    color: rgba(255,255,255,0.7);
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.65);
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 
-  /* Spec callout grid */
+  /* Spec callout grid — fixed row heights, all green values */
   .cover-specs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 6px;
-    margin-bottom: 24px;
-    flex: 1;
-    min-height: 0;
+    grid-template-rows: repeat(4, 80px);
+    gap: 5px;
+    margin-bottom: 16px;
   }
   .cover-spec {
     background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 4px;
     padding: 10px 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .cover-spec-val {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 900;
-    color: var(--green);
+    color: var(--green);   /* ALL values green, matching V3 */
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
   .cover-spec-val sup {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     vertical-align: super;
   }
+  .cover-spec-val.small { font-size: 20px; }
+  .cover-spec-val.xsmall { font-size: 16px; }
   .cover-spec-lbl {
-    font-size: 7.5px;
+    font-size: 7px;
     font-weight: 700;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.5);
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     line-height: 1.3;
   }
 
+  /* Cert badges — moved to left panel, below spec grid */
+  .cover-certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .cover-cert-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 8.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.04em;
+  }
+
+  /* RIGHT PANEL */
+  .cover-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #F0F0F0;
+  }
+  .cover-image-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px 12px;
+    min-height: 0;
+  }
+  .cover-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  /* Tagline + contact — moved to right panel, below image */
+  .cover-tagline-strip {
+    background: var(--dark);
+    padding: 16px 24px 18px;
+    flex-shrink: 0;
+  }
   .cover-tagline {
     font-size: 9px;
     font-weight: 800;
@@ -234,54 +281,17 @@
   .cover-contact {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
   }
-  .cover-contact a, .cover-contact span {
+  .cover-contact a {
     font-size: 10px;
-    color: rgba(255,255,255,0.75);
+    color: var(--green);
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
   }
-  .cover-contact a { color: var(--green); }
-
-  .cover-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: #F2F2F2;
-  }
-  .cover-image-wrap {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px 16px;
-  }
-  .cover-image-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  .cover-cert-strip {
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-  .cert-pill {
-    background: var(--white);
-    border: 1.5px solid #CCCCCC;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 9.5px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: 0.04em;
+  .cover-contact span {
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
   }
 
   /* ══════════════════════════════════════════
@@ -290,13 +300,13 @@
   .overview-top {
     display: flex;
     gap: 20px;
-    padding: 20px 32px 16px;
+    padding: 18px 32px 14px;
     flex-shrink: 0;
   }
   .overview-img {
-    width: 170px;
-    min-width: 170px;
-    height: 190px;
+    width: 168px;
+    min-width: 168px;
+    height: 186px;
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
@@ -309,14 +319,12 @@
     object-fit: contain;
     padding: 6px;
   }
-  .overview-text-col {
-    flex: 1;
-  }
+  .overview-text-col { flex: 1; }
   .overview-para {
     font-size: 11.5px;
     line-height: 1.65;
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 11px;
   }
   .overview-para strong { font-weight: 700; }
   .overview-includes {
@@ -348,10 +356,10 @@
     margin-top: 4px;
   }
 
-  /* KEY BENEFITS bar */
+  /* Section bar */
   .section-bar {
     background: var(--blue);
-    padding: 9px 32px;
+    padding: 8px 32px;
     flex-shrink: 0;
   }
   .section-bar-text {
@@ -366,36 +374,44 @@
   .benefits-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    padding: 20px 32px 16px;
+    padding: 18px 32px 14px;
     flex-shrink: 0;
     border-bottom: 1px solid var(--border);
+    gap: 0;
   }
   .benefit-col {
-    padding: 0 20px 0 0;
+    padding-right: 20px;
     border-right: 1px solid var(--border);
   }
   .benefit-col:last-child { border-right: none; padding-right: 0; }
   .benefit-col:not(:first-child) { padding-left: 20px; }
+
+  /* Refined icon box — clean green border, properly sized SVG */
   .benefit-icon-box {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     border: 2px solid var(--green);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    flex-shrink: 0;
   }
   .benefit-icon-box svg {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
+    stroke: var(--green);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .benefit-title {
     font-size: 13px;
     font-weight: 800;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     line-height: 1.2;
   }
   .benefit-desc {
@@ -409,7 +425,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0;
   }
   .benefit-checks li {
     font-size: 10px;
@@ -417,7 +433,7 @@
     display: flex;
     align-items: flex-start;
     gap: 6px;
-    padding-bottom: 4px;
+    padding: 4px 0;
     border-bottom: 1px solid var(--border);
     line-height: 1.4;
   }
@@ -441,7 +457,7 @@
   .uc-col {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid rgba(0,0,0,0.08);
   }
   .uc-col:last-child { border-right: none; }
   .uc-photo {
@@ -456,12 +472,12 @@
     display: block;
   }
   .uc-text {
-    padding: 10px 12px 14px;
+    padding: 9px 12px 12px;
     background: var(--white);
     flex-shrink: 0;
   }
   .uc-category {
-    font-size: 8px;
+    font-size: 7.5px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -469,14 +485,14 @@
     margin-bottom: 3px;
   }
   .uc-title {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 800;
     color: var(--text);
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     line-height: 1.2;
   }
   .uc-desc {
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--subtext);
     line-height: 1.5;
   }
@@ -487,43 +503,62 @@
   .specs-top {
     display: flex;
     gap: 0;
-    padding: 16px 32px;
+    padding: 12px 32px 0;
     flex-shrink: 0;
     border-bottom: 1px solid var(--border);
   }
+  .specs-img-col {
+    width: 158px;
+    min-width: 158px;
+    flex-shrink: 0;
+    margin-right: 0;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .specs-img-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 6px;
+  }
   .specs-img {
-    width: 150px;
-    min-width: 150px;
-    height: 160px;
+    flex: 1;
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
     background: #F5F5F5;
-    flex-shrink: 0;
-    margin-right: 20px;
+    min-height: 140px;
+    max-height: 170px;
   }
   .specs-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     padding: 6px;
+    display: block;
   }
   .specs-callouts {
     flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
-    gap: 0;
+    border-left: 1px solid var(--border);
   }
   .spec-callout {
-    padding: 12px 16px;
+    padding: 12px 14px;
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
-  .spec-callout:nth-child(3), .spec-callout:nth-child(6) { border-right: none; }
-  .spec-callout:nth-child(4), .spec-callout:nth-child(5), .spec-callout:nth-child(6) { border-bottom: none; }
+  .spec-callout:nth-child(3),
+  .spec-callout:nth-child(6) { border-right: none; }
+  .spec-callout:nth-child(4),
+  .spec-callout:nth-child(5),
+  .spec-callout:nth-child(6) { border-bottom: none; }
   .sc-label {
-    font-size: 9px;
+    font-size: 8.5px;
     font-weight: 700;
     color: var(--subtext);
     text-transform: uppercase;
@@ -531,37 +566,35 @@
     margin-bottom: 4px;
   }
   .sc-value {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 900;
     line-height: 1;
     margin-bottom: 3px;
   }
   .sc-value.green { color: var(--green); }
   .sc-value.blue  { color: var(--blue); }
-  .sc-value.white-dark { color: var(--dark); }
+  .sc-value.dark  { color: var(--dark); }
   .sc-sub {
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--subtext);
     line-height: 1.4;
   }
 
   /* Specs table */
-  .specs-table-section {
+  .specs-table-wrap {
     flex: 1;
-    padding: 0 32px 12px;
-    overflow: hidden;
+    padding: 6px 32px 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    min-height: 0;
+    overflow: hidden;
   }
   .specs-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 10px;
   }
-  .specs-table thead tr {
-    background: var(--dark);
-  }
+  .specs-table thead tr { background: var(--dark); }
   .specs-table thead th {
     padding: 8px 12px;
     text-align: left;
@@ -578,7 +611,7 @@
   }
   .specs-table tbody tr:nth-child(even) { background: #F7F7F7; }
   .specs-table td {
-    padding: 8px 12px;
+    padding: 7px 12px;
     border-bottom: 1px solid #EBEBEB;
     color: var(--text);
     line-height: 1.4;
@@ -601,15 +634,14 @@
   .specs-table td.unit-dash {
     text-align: right;
     color: var(--blue);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 300;
   }
 
-  /* Bottom 3-col section */
+  /* Bottom 3-col */
   .specs-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
     flex-shrink: 0;
     border-top: 1px solid var(--border);
     margin: 0 32px;
@@ -625,14 +657,9 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--blue);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
-  .cert-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-bottom: 4px;
-  }
+  .cert-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
   .cert-badge {
     background: var(--white);
     border: 1.5px solid #CCCCCC;
@@ -642,32 +669,11 @@
     font-weight: 700;
     color: var(--text);
   }
-  .sbc-note {
-    font-size: 8.5px;
-    color: var(--subtext);
-    margin-top: 4px;
-  }
-  .sbc-status-green {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--green);
-    margin-bottom: 2px;
-  }
-  .sbc-status-blue {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 2px;
-  }
-  .sbc-warranty-line {
-    font-size: 10px;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .sbc-warranty-note {
-    font-size: 8.5px;
-    color: var(--subtext);
-  }
+  .sbc-note { font-size: 8.5px; color: var(--subtext); margin-top: 4px; }
+  .sbc-status-green { font-size: 10px; font-weight: 700; color: var(--green); margin-bottom: 2px; }
+  .sbc-status-blue  { font-size: 10px; font-weight: 700; color: var(--blue);  margin-bottom: 2px; }
+  .sbc-warranty-line { font-size: 10px; color: var(--text); margin-bottom: 2px; }
+  .sbc-warranty-note { font-size: 8.5px; color: var(--subtext); }
 
   /* FAT section */
   .fat-section {
@@ -681,7 +687,7 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--white);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
   .fat-grid {
     display: grid;
@@ -696,12 +702,7 @@
     gap: 6px;
     line-height: 1.4;
   }
-  .fat-item::before {
-    content: '✓';
-    color: var(--green);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+  .fat-item::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
 
   /* ══════════════════════════════════════════
      PAGE 4 — TECHNOLOGY COMPARISON
@@ -710,7 +711,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 16px 32px;
+    padding: 16px 32px 12px;
     overflow: hidden;
   }
   .comparison-intro-label {
@@ -725,14 +726,14 @@
     font-size: 20px;
     font-weight: 900;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     line-height: 1.2;
   }
   .comparison-intro-para {
     font-size: 11px;
     color: var(--subtext);
     line-height: 1.6;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .comparison-table {
     width: 100%;
@@ -740,9 +741,7 @@
     font-size: 10.5px;
     flex: 1;
   }
-  .comparison-table thead tr {
-    background: var(--dark);
-  }
+  .comparison-table thead tr { background: var(--dark); }
   .comparison-table thead th {
     padding: 9px 16px;
     text-align: left;
@@ -762,27 +761,16 @@
     line-height: 1.4;
     vertical-align: middle;
   }
-  .comparison-table td:first-child {
-    font-weight: 600;
-    color: var(--mid);
-    width: 28%;
-  }
-  .comparison-table td.win {
-    color: var(--green);
-    font-weight: 700;
-  }
-  .comparison-table td.neutral {
-    color: #888888;
-  }
+  .comparison-table td:first-child { font-weight: 600; color: var(--mid); width: 28%; }
+  .comparison-table td.win     { color: var(--green); font-weight: 700; }
+  .comparison-table td.neutral { color: #888888; }
 
-  /* Bottom stats */
   .comparison-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
     border-top: 1px solid var(--border);
     flex-shrink: 0;
-    margin-top: 12px;
+    margin-top: 10px;
   }
   .comp-stat {
     padding: 12px 16px;
@@ -797,11 +785,7 @@
     line-height: 1;
     margin-bottom: 4px;
   }
-  .comp-stat-label {
-    font-size: 9px;
-    color: var(--subtext);
-    line-height: 1.4;
-  }
+  .comp-stat-label { font-size: 9px; color: var(--subtext); line-height: 1.4; }
 
   /* ══════════════════════════════════════════
      PAGE 5 — BANKABLE ECONOMICS
@@ -810,8 +794,9 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 16px 32px;
+    padding: 14px 32px 10px;
     overflow: hidden;
+    min-height: 0;
   }
   .econ-intro-label {
     font-size: 9px;
@@ -819,25 +804,25 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--blue);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .econ-intro-heading {
     font-size: 20px;
     font-weight: 900;
     color: var(--text);
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     line-height: 1.2;
   }
   .econ-intro-para {
     font-size: 10.5px;
     color: var(--subtext);
     line-height: 1.6;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .econ-main {
     display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 20px;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
     flex: 1;
     min-height: 0;
   }
@@ -853,17 +838,19 @@
     border-radius: 4px;
     overflow: hidden;
     background: var(--white);
+    max-height: 280px; /* cap chart height to leave breathing room */
   }
   .econ-chart-img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center center;
     display: block;
   }
   .econ-chart-caption {
     font-size: 8.5px;
     color: var(--subtext);
-    margin-top: 5px;
+    margin-top: 4px;
     line-height: 1.4;
   }
   .econ-chart-caption strong { color: var(--green); font-weight: 700; }
@@ -878,32 +865,51 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
   .assumptions-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 10px;
+    margin-bottom: 12px;
   }
-  .assumptions-table tr {
-    border-bottom: 1px solid var(--border);
-  }
+  .assumptions-table tr { border-bottom: 1px solid var(--border); }
   .assumptions-table td {
-    padding: 5.5px 0;
+    padding: 5px 0;
     color: var(--subtext);
     line-height: 1.3;
     vertical-align: middle;
   }
-  .assumptions-table td:first-child {
-    color: var(--mid);
-    font-size: 9.5px;
-    width: 65%;
-  }
-  .assumptions-table td:last-child {
+  .assumptions-table td:first-child { color: var(--mid); font-size: 9.5px; width: 65%; }
+  .assumptions-table td:last-child { font-weight: 700; color: var(--text); text-align: right; font-size: 10px; }
+
+  /* Chart legend — moved below assumptions table */
+  .chart-legend-title {
+    font-size: 8.5px;
     font-weight: 700;
-    color: var(--text);
-    text-align: right;
-    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 7px;
+  }
+  .chart-legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 10px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9.5px;
+    color: var(--subtext);
+    line-height: 1.35;
+  }
+  .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
   }
 
   /* Savings banner */
@@ -915,15 +921,12 @@
     border-radius: 4px;
     overflow: hidden;
   }
-  .savings-cell {
-    padding: 12px 16px;
-    text-align: center;
-  }
-  .savings-cell.dark-bg  { background: var(--dark); }
-  .savings-cell.blue-bg  { background: var(--blue); }
-  .savings-cell.grey-bg  { background: #5A5A5A; }
+  .savings-cell { padding: 11px 16px; text-align: center; }
+  .savings-cell.dark-bg { background: var(--dark); }
+  .savings-cell.blue-bg { background: var(--blue); }
+  .savings-cell.grey-bg { background: #5A5A5A; }
   .savings-val {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 900;
     color: var(--green);
     line-height: 1;
@@ -931,7 +934,7 @@
   }
   .savings-cell.blue-bg .savings-val { color: var(--white); }
   .savings-lbl {
-    font-size: 8.5px;
+    font-size: 8px;
     color: rgba(255,255,255,0.75);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -950,29 +953,26 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--green);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
   .partners-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 16px;
+    gap: 6px 14px;
     align-items: center;
   }
   .partner-logo {
-    height: 36px;
-    max-width: 120px;
+    height: 32px;
+    max-width: 110px;
+    width: auto;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.65;
+    opacity: 0.6;
   }
 
   @media print {
     body { background: white; }
-    .page {
-      margin: 0;
-      box-shadow: none;
-      page-break-after: always;
-    }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
   }
 </style>
 </head>
@@ -982,7 +982,9 @@
      PAGE 1 — COVER
 ══════════════════════════════════════════ -->
 <div class="page" id="cover">
+  <!-- LEFT: dark panel -->
   <div class="cover-left">
+    <!-- Logo: natural aspect ratio, not stretched -->
     <div class="cover-logo">
       <img src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
     </div>
@@ -991,6 +993,7 @@
     <div class="cover-title">279kWh DC<br>Battery<br>Cabinet</div>
     <p class="cover-desc">Sodium-Ion NFPP technology engineered for critical infrastructure resiliency and demanding commercial deployments — with bankable economics.</p>
 
+    <!-- Spec grid: fixed 72px rows, all green values -->
     <div class="cover-specs">
       <div class="cover-spec">
         <div class="cover-spec-val">279<sup>kWh</sup></div>
@@ -1009,15 +1012,15 @@
         <div class="cover-spec-lbl">Lower TCoO vs. LFP</div>
       </div>
       <div class="cover-spec">
-        <div class="cover-spec-val" style="font-size:16px;">634–994<sup>V</sup></div>
+        <div class="cover-spec-val small">634–994<sup>V</sup></div>
         <div class="cover-spec-lbl">DC Voltage Range</div>
       </div>
       <div class="cover-spec">
-        <div class="cover-spec-val" style="font-size:16px;">2.2–10<sup>hr</sup></div>
+        <div class="cover-spec-val small">2.2–10<sup>hr</sup></div>
         <div class="cover-spec-lbl">Duration Range</div>
       </div>
       <div class="cover-spec">
-        <div class="cover-spec-val" style="font-size:15px;">−40/+55<sup>°C</sup></div>
+        <div class="cover-spec-val xsmall">−40/+55<sup>°C</sup></div>
         <div class="cover-spec-lbl">Operating Temp</div>
       </div>
       <div class="cover-spec">
@@ -1026,25 +1029,30 @@
       </div>
     </div>
 
-    <div class="cover-tagline">Energy Storage You Can Bank On</div>
-    <div class="cover-contact">
-      <a href="#">www.CoulombTechnology.com</a>
-      <span>sales@coulombtechnology.com</span>
-      <span>208-768-8888</span>
+    <!-- Cert badges: moved to left panel -->
+    <div class="cover-certs">
+      <span class="cover-cert-pill">UL 1973</span>
+      <span class="cover-cert-pill">UL 9540</span>
+      <span class="cover-cert-pill">UL 9540A</span>
+      <span class="cover-cert-pill">UN 38.3</span>
+      <span class="cover-cert-pill">IP54</span>
+      <span class="cover-cert-pill">IEC 62619</span>
     </div>
   </div>
 
+  <!-- RIGHT: light grey panel -->
   <div class="cover-right">
     <div class="cover-image-wrap">
       <img src="assets/coulomb_cabinet_official.jpg" alt="Series DC 279kWh Battery Cabinet">
     </div>
-    <div class="cover-cert-strip">
-      <span class="cert-pill">UL 1973</span>
-      <span class="cert-pill">UL 9540</span>
-      <span class="cert-pill">UL 9540A</span>
-      <span class="cert-pill">UN 38.3</span>
-      <span class="cert-pill">IP54</span>
-      <span class="cert-pill">IEC 62619</span>
+    <!-- Tagline + contact: moved to right panel, below image -->
+    <div class="cover-tagline-strip">
+      <div class="cover-tagline">Energy Storage You Can Bank On</div>
+      <div class="cover-contact">
+        <a href="#">www.CoulombTechnology.com</a>
+        <span>sales@coulombtechnology.com</span>
+        <span>208-768-8888</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1070,7 +1078,6 @@
   <div class="header-rule"></div>
 
   <div class="page-body">
-    <!-- Overview top -->
     <div class="overview-top">
       <div class="overview-img">
         <img src="assets/coulomb_cabinet_official.jpg" alt="Series DC Cabinet">
@@ -1089,15 +1096,16 @@
       </div>
     </div>
 
-    <!-- Key Benefits -->
     <div class="section-bar"><span class="section-bar-text">Key Benefits</span></div>
+
     <div class="benefits-row">
+      <!-- Safety icon: shield/warning triangle — refined outline SVG -->
       <div class="benefit-col">
         <div class="benefit-icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6BBF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
             <line x1="12" y1="9" x2="12" y2="13"/>
-            <line x1="12" y1="17" x2="12.01" y2="17"/>
+            <circle cx="12" cy="16" r="0.5" fill="#6BBF00"/>
           </svg>
         </div>
         <div class="benefit-title">Safety-First Design</div>
@@ -1109,10 +1117,12 @@
           <li>Clearer AHJ approvals</li>
         </ul>
       </div>
+      <!-- Performance icon: thermometer — refined outline SVG -->
       <div class="benefit-col">
         <div class="benefit-icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6BBF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+            <line x1="12" y1="6" x2="12" y2="10"/>
           </svg>
         </div>
         <div class="benefit-title">Extreme Performance</div>
@@ -1124,9 +1134,10 @@
           <li>Fast charging capability</li>
         </ul>
       </div>
+      <!-- Supply chain icon: delivery truck — refined outline SVG -->
       <div class="benefit-col">
         <div class="benefit-icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6BBF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24">
             <rect x="1" y="3" width="15" height="13" rx="1"/>
             <path d="M16 8h4l3 3v5h-7V8z"/>
             <circle cx="5.5" cy="18.5" r="2.5"/>
@@ -1144,7 +1155,6 @@
       </div>
     </div>
 
-    <!-- Use Cases -->
     <div class="section-bar"><span class="section-bar-text">Where the Series DC Performs</span></div>
     <div class="use-cases-grid">
       <div class="uc-col">
@@ -1191,13 +1201,15 @@
 
 <!-- ══════════════════════════════════════════
      PAGE 3 — TECHNICAL SPECIFICATIONS
+     Header: "Specifications" in WHITE (user request)
 ══════════════════════════════════════════ -->
 <div class="page">
   <div class="inner-header">
     <div class="inner-header-top">
       <div>
         <div class="inner-header-section">Technical Data Sheet</div>
-        <div class="inner-header-title" style="color:var(--green);">Specifications</div>
+        <!-- "Specifications" in WHITE per user request -->
+        <div class="inner-header-title">Specifications</div>
       </div>
       <img class="inner-header-logo" src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
     </div>
@@ -1205,10 +1217,12 @@
   <div class="header-rule"></div>
 
   <div class="page-body">
-    <!-- Top: image + callouts -->
     <div class="specs-top">
-      <div class="specs-img">
-        <img src="assets/coulomb_cabinet_official.jpg" alt="Series DC Cabinet">
+      <div class="specs-img-col">
+        <div class="specs-img-label">Series DC — Cabinet</div>
+        <div class="specs-img">
+          <img src="assets/coulomb_cabinet_official.jpg" alt="Series DC Cabinet">
+        </div>
       </div>
       <div class="specs-callouts">
         <div class="spec-callout">
@@ -1218,22 +1232,22 @@
         </div>
         <div class="spec-callout">
           <div class="sc-label">Max Rated Power</div>
-          <div class="sc-value white-dark">140<span style="font-size:14px;font-weight:700;">kW</span></div>
+          <div class="sc-value dark">140<span style="font-size:14px;font-weight:700;">kW</span></div>
           <div class="sc-sub">125 kW guaranteed constant</div>
         </div>
         <div class="spec-callout">
           <div class="sc-label">DC Voltage Range</div>
-          <div class="sc-value blue">634–994<span style="font-size:13px;font-weight:700;">V</span></div>
+          <div class="sc-value blue" style="font-size:20px;">634–994<span style="font-size:13px;font-weight:700;">V</span></div>
           <div class="sc-sub">Flexible inverter compatibility</div>
         </div>
         <div class="spec-callout">
           <div class="sc-label">Duration Range</div>
-          <div class="sc-value white-dark">2.2–10<span style="font-size:14px;font-weight:700;">hr</span></div>
+          <div class="sc-value dark">2.2–10<span style="font-size:14px;font-weight:700;">hr</span></div>
           <div class="sc-sub">Peak shaving to long backup</div>
         </div>
         <div class="spec-callout">
           <div class="sc-label">Operating Temperature</div>
-          <div class="sc-value white-dark" style="font-size:18px;">−40/+55<span style="font-size:12px;font-weight:700;">°C</span></div>
+          <div class="sc-value dark" style="font-size:18px;">−40/+55<span style="font-size:12px;font-weight:700;">°C</span></div>
           <div class="sc-sub">No HVAC — any climate</div>
         </div>
         <div class="spec-callout">
@@ -1244,8 +1258,7 @@
       </div>
     </div>
 
-    <!-- Specs table -->
-    <div class="specs-table-section">
+    <div class="specs-table-wrap">
       <table class="specs-table">
         <thead>
           <tr>
@@ -1272,7 +1285,6 @@
       </table>
     </div>
 
-    <!-- Bottom 3-col -->
     <div class="specs-bottom">
       <div class="specs-bottom-col">
         <div class="sbc-title">Certifications</div>
@@ -1296,7 +1308,6 @@
       </div>
     </div>
 
-    <!-- FAT -->
     <div class="fat-section">
       <div class="fat-title">Factory Acceptance Test (FAT) Scope</div>
       <div class="fat-grid">
@@ -1418,6 +1429,7 @@
       <p class="econ-intro-para">Our sodium-ion technology delivers measurable savings through eliminated HVAC requirements, reduced degradation, and lower maintenance, insurance, and permitting costs — validated by real-world deployments, not laboratory projections.</p>
 
       <div class="econ-main">
+        <!-- Chart: capped height so savings banner + partners have breathing room -->
         <div class="econ-chart-col">
           <div class="econ-chart-img">
             <img src="assets/tco_chart.png" alt="15-Year Total Cost of Ownership">
@@ -1427,6 +1439,7 @@
           </div>
         </div>
 
+        <!-- Assumptions + legend below -->
         <div class="econ-assumptions-col">
           <div class="assumptions-title">Model Assumptions</div>
           <table class="assumptions-table">
@@ -1439,6 +1452,19 @@
             <tr><td>Cell derating / cold temps</td><td>75%</td></tr>
             <tr><td>Discount rate / NPV calc</td><td>8%</td></tr>
           </table>
+
+          <!-- Chart legend — moved below assumptions, larger font -->
+          <div class="chart-legend-title">Cost Components</div>
+          <div class="chart-legend-grid">
+            <div class="legend-item"><span class="legend-swatch" style="background:#0044BB;"></span>LFP — CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#3A8000;"></span>NFPP — CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#2266DD;"></span>LFP — HVAC Load</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#6BBF00;"></span>NFPP — O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#4488EE;"></span>LFP — O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#8FD430;"></span>NFPP — Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#77AAFF;"></span>LFP — Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#AACCFF;"></span>LFP — Augmentation</div>
+          </div>
         </div>
       </div>
 
@@ -1448,11 +1474,11 @@
           <div class="savings-lbl">Lower 15-Year TCoO<br>vs. liquid-cooled lithium-ion</div>
         </div>
         <div class="savings-cell blue-bg">
-          <div class="savings-val">$20.3<span style="font-size:14px;">/kWh</span></div>
+          <div class="savings-val">$20.3<span style="font-size:13px;">/kWh</span></div>
           <div class="savings-lbl">Lifetime savings per kWh<br>over project lifetime</div>
         </div>
         <div class="savings-cell grey-bg">
-          <div class="savings-val">20<span style="font-size:16px;">yr</span></div>
+          <div class="savings-val">20<span style="font-size:15px;">yr</span></div>
           <div class="savings-lbl">Projected battery life<br>sodium-ion NFPP chemistry</div>
         </div>
       </div>
