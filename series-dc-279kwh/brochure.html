@@ -885,28 +885,28 @@
     flex-shrink: 0;
   }
 
-  /* Inline stats below chart caption — each on its own line, matching 14% style */
+  /* Inline stats — each a single line exactly matching the 14% caption style */
   .econ-inline-stats {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-top: 8px;
+    gap: 3px;
+    margin-top: 6px;
     flex-shrink: 0;
   }
   .econ-inline-stat {
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 6px;
+    line-height: 1.4;
   }
   .econ-inline-stat-val {
-    font-size: 22px;
-    font-weight: 900;
+    font-size: 8.5px;
+    font-weight: 700;
     color: var(--green);
-    line-height: 1;
-    min-width: 90px;
+    white-space: nowrap;
   }
   .econ-inline-stat-lbl {
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--subtext);
     line-height: 1.4;
   }
@@ -927,23 +927,23 @@
   }
   .partners-row {
     display: flex;
-    gap: 8px 24px;
+    gap: 0;
     align-items: center;
     margin-bottom: 10px;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   .partner-logo {
-    height: 36px;
-    max-width: 120px;
+    height: 34px;
+    max-width: 110px;
     width: auto;
     object-fit: contain;
     filter: grayscale(100%);
     opacity: 0.75;
   }
   .partner-logo.tall {
-    height: 42px;
-    max-width: 140px;
+    height: 38px;
+    max-width: 120px;
   }
 
   @media print {
@@ -1415,12 +1415,12 @@
           </div>
           <div class="econ-inline-stats">
             <div class="econ-inline-stat">
-              <div class="econ-inline-stat-val">$20.3<span style="font-size:13px;font-weight:700;">/kWh</span></div>
-              <div class="econ-inline-stat-lbl">Lifetime savings per kWh<br>over project lifetime</div>
+              <div class="econ-inline-stat-val">$20.3/kWh</div>
+              <div class="econ-inline-stat-lbl">&mdash; Lifetime savings per kWh over project lifetime</div>
             </div>
             <div class="econ-inline-stat">
-              <div class="econ-inline-stat-val">20<span style="font-size:14px;font-weight:700;">yr</span></div>
-              <div class="econ-inline-stat-lbl">Projected battery life<br>sodium-ion NFPP chemistry</div>
+              <div class="econ-inline-stat-val">20yr</div>
+              <div class="econ-inline-stat-lbl">&mdash; Projected battery life, sodium-ion NFPP chemistry</div>
             </div>
           </div>
         </div>
@@ -1439,7 +1439,17 @@
             <tr><td>Discount rate / NPV calc</td><td>8%</td></tr>
           </table>
 
-          <!-- Cost Components legend removed per user request -->
+          <div class="chart-legend-title">Cost Components</div>
+          <div class="chart-legend-grid">
+            <div class="legend-item"><span class="legend-swatch" style="background:#0044BB;"></span>LFP &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#3A8000;"></span>NFPP &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#2266DD;"></span>LFP &mdash; HVAC Load</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#6BBF00;"></span>NFPP &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#4488EE;"></span>LFP &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#8FD430;"></span>NFPP &mdash; Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#77AAFF;"></span>LFP &mdash; Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#AACCFF;"></span>LFP &mdash; Augmentation</div>
+          </div>
         </div>
       </div>
 
