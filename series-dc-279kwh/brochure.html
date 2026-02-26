@@ -816,9 +816,9 @@
     display: grid;
     grid-template-columns: 1fr 240px;
     gap: 16px;
-    flex: 1;
+    flex-shrink: 0;
     min-height: 0;
-    align-items: stretch;
+    align-items: start;
   }
   .econ-chart-col {
     display: flex;
@@ -930,7 +930,7 @@
   /* Partners — 2 rows, max 5 per row, larger logos, blue title */
   .partners-section {
     flex-shrink: 0;
-    margin-top: auto;
+    margin-top: 12px;
     padding-top: 10px;
   }
   .partners-title {
