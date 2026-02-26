@@ -28,6 +28,25 @@
     print-color-adjust: exact;
   }
 
+  @media print {
+    body {
+      background: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      page-break-after: always;
+      break-after: page;
+    }
+    @page {
+      margin: 0;
+      size: 816px 1056px;
+    }
+  }
+
   /* ── PAGE SHELL ── */
   .page {
     width: 816px;
@@ -959,7 +978,7 @@
   <div class="cover-left">
     <!-- Logo: natural aspect ratio, not stretched -->
     <div class="cover-logo">
-      <img src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
+      <img src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
     </div>
 
     <div class="cover-series">Series — DC</div>
@@ -1040,7 +1059,7 @@
         <div class="inner-header-section">Product Overview</div>
         <div class="inner-header-title">279kWh DC <span class="green">Battery Cabinet</span></div>
       </div>
-      <img class="inner-header-logo" src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
     </div>
     <div class="inner-header-pills">
       <span class="inner-header-pill">Sodium-Ion NFPP</span>
@@ -1184,7 +1203,7 @@
         <!-- "Specifications" in WHITE per user request -->
         <div class="inner-header-title">Specifications</div>
       </div>
-      <img class="inner-header-logo" src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
     </div>
   </div>
   <div class="header-rule"></div>
@@ -1311,7 +1330,7 @@
         <div class="inner-header-section">Technology Comparison</div>
         <div class="inner-header-title">Sodium-Ion NFPP <span class="green">vs. Lead-Acid</span></div>
       </div>
-      <img class="inner-header-logo" src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
     </div>
     <div class="inner-header-pills">
       <span class="inner-header-pill">Performance</span>
@@ -1390,7 +1409,7 @@
         <div class="inner-header-section">Total Cost of Ownership</div>
         <div class="inner-header-title">Bankable <span class="green">Economics</span></div>
       </div>
-      <img class="inner-header-logo" src="assets/coulomb_logo_white.jpg" alt="Coulomb Technology">
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
     </div>
   </div>
   <div class="header-rule"></div>
