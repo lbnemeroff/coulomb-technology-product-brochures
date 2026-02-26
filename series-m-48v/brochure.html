@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coulomb Technology — Series M 48V Traction Battery Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green:   #6BBF00;
+    --blue:    #0066FF;
+    --dark:    #1E1E1E;
+    --mid:     #3A3A3A;
+    --light:   #F5F5F5;
+    --white:   #FFFFFF;
+    --border:  #E0E0E0;
+    --text:    #1A1A1A;
+    --subtext: #555555;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #BBBBBB;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @media print {
+    body { background: none; margin: 0; padding: 0; display: block; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; break-after: page; }
+    @page { margin: 0; size: 816px 1040px; }
+  }
+
+  .page {
+    width: 816px;
+    height: 1040px;
+    background: var(--white);
+    margin: 24px auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.22);
+  }
+
+  /* SHARED INNER HEADER */
+  .inner-header {
+    background: var(--dark);
+    padding: 14px 32px 12px;
+    flex-shrink: 0;
+  }
+  .inner-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .inner-header-section {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .inner-header-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .inner-header-title .green { color: var(--green); }
+  .inner-header-title .blue  { color: var(--blue); }
+  .inner-header-logo {
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    object-position: right center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    margin-left: 16px;
+  }
+  .inner-header-pills {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+  }
+  .inner-header-pill {
+    font-size: 10px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .inner-header-pill::before {
+    content: '•';
+    color: var(--green);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .header-rule { height: 2px; background: var(--green); flex-shrink: 0; }
+
+  /* SHARED FOOTER */
+  .page-footer {
+    background: #1E1E1E;
+    padding: 7px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .footer-left   { font-size: 9px; color: rgba(255,255,255,0.6); font-weight: 500; }
+  .footer-center { font-size: 9px; color: var(--green); font-weight: 600; }
+  .footer-right  { font-size: 9px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  /* PAGE BODY */
+  .page-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--white);
+    min-height: 0;
+  }
+
+  /* PAGE 1 — COVER */
+  #cover { flex-direction: row; }
+
+  .cover-left {
+    width: 320px;
+    min-width: 320px;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    padding: 22px 24px 22px;
+  }
+  .cover-logo { margin-bottom: 14px; }
+  .cover-logo img {
+    height: 52px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+  }
+  .cover-series {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .cover-title {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .cover-desc {
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .cover-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 70px);
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .cover-spec {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 10px 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-spec-val {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cover-spec-val sup { font-size: 12px; font-weight: 700; vertical-align: super; }
+  .cover-spec-val.small  { font-size: 20px; }
+  .cover-spec-val.xsmall { font-size: 16px; }
+  .cover-spec-lbl {
+    font-size: 7px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+  }
+
+  .cover-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+  .cover-image-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px 12px;
+    min-height: 0;
+  }
+  .cover-image-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .cover-cert-strip {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 10px 20px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+  .cover-cert-pill {
+    border: 1.5px solid #AAAAAA;
+    border-radius: 3px;
+    padding: 4px 9px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    background: var(--white);
+  }
+
+  /* PAGE 2 — OVERVIEW */
+  .overview-top {
+    display: flex;
+    gap: 20px;
+    padding: 18px 32px 14px;
+    flex-shrink: 0;
+  }
+  .overview-img {
+    width: 168px;
+    min-width: 168px;
+    height: 186px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #F5F5F5;
+    flex-shrink: 0;
+  }
+  .overview-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+  .overview-text-col { flex: 1; }
+  .overview-para { font-size: 11.5px; line-height: 1.65; color: var(--text); margin-bottom: 11px; }
+  .overview-para strong { font-weight: 700; }
+  .overview-includes { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .overview-bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+  .overview-bullet {
+    font-size: 10.5px;
+    color: var(--subtext);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+  }
+  .overview-bullet::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .section-bar { background: var(--blue); padding: 8px 32px; flex-shrink: 0; }
+  .section-bar-text { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; color: var(--white); text-transform: uppercase; }
+
+  .benefits-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 18px 32px 14px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+    gap: 0;
+  }
+  .benefit-col { padding-right: 20px; border-right: 1px solid var(--border); }
+  .benefit-col:last-child { border-right: none; padding-right: 0; }
+  .benefit-col:not(:first-child) { padding-left: 20px; }
+
+  .benefit-icon-box {
+    width: 46px;
+    height: 46px;
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+  }
+  .benefit-icon-box svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--green);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .benefit-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 5px; line-height: 1.2; }
+  .benefit-desc { font-size: 10px; color: var(--subtext); line-height: 1.55; margin-bottom: 10px; }
+  .benefit-checks { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0; }
+  .benefit-checks li {
+    font-size: 10px;
+    color: var(--subtext);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.4;
+  }
+  .benefit-checks li:last-child { border-bottom: none; }
+  .benefit-checks li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 11px; flex-shrink: 0; line-height: 1.3; }
+
+  .use-cases-grid { display: grid; grid-template-columns: repeat(4, 1fr); flex: 1; min-height: 0; }
+  .uc-col { display: flex; flex-direction: column; border-right: 1px solid rgba(0,0,0,0.08); }
+  .uc-col:last-child { border-right: none; }
+  .uc-photo { height: 175px; overflow: hidden; flex-shrink: 0; }
+  .uc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+  .uc-text { padding: 9px 12px 12px; background: var(--white); flex-shrink: 0; }
+  .uc-category { font-size: 7.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+  .uc-title { font-size: 11px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+  .uc-desc { font-size: 8.5px; color: var(--subtext); line-height: 1.5; }
+
+  /* PAGE 3 — SPECS */
+  .specs-top { display: flex; gap: 0; padding: 12px 32px 0; flex-shrink: 0; border-bottom: 1px solid var(--border); }
+  .specs-img-col { width: 158px; min-width: 158px; flex-shrink: 0; padding-right: 16px; display: flex; flex-direction: column; }
+  .specs-img-label { font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .specs-img { flex: 1; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: #F5F5F5; min-height: 140px; max-height: 170px; }
+  .specs-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
+  .specs-callouts { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; border-left: 1px solid var(--border); }
+  .spec-callout { padding: 12px 14px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .spec-callout:nth-child(3), .spec-callout:nth-child(6) { border-right: none; }
+  .spec-callout:nth-child(4), .spec-callout:nth-child(5), .spec-callout:nth-child(6) { border-bottom: none; }
+  .sc-label { font-size: 8.5px; font-weight: 700; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .sc-value { font-size: 26px; font-weight: 900; line-height: 1; margin-bottom: 3px; }
+  .sc-value.green { color: var(--green); }
+  .sc-value.blue  { color: var(--blue); }
+  .sc-value.dark  { color: var(--dark); }
+  .sc-sub { font-size: 8.5px; color: var(--subtext); line-height: 1.4; }
+
+  .specs-table-wrap { flex: 1; padding: 6px 32px 0; overflow: hidden; }
+  .specs-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  .specs-table thead tr { background: var(--dark); }
+  .specs-table thead th { padding: 8px 12px; text-align: left; font-size: 8.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .specs-table thead th.unit-col { color: var(--green); text-align: right; width: 80px; }
+  .specs-table tbody tr:nth-child(even) { background: #F7F7F7; }
+  .specs-table td { padding: 12px 12px; border-bottom: 1px solid #EBEBEB; color: var(--text); line-height: 1.4; vertical-align: middle; }
+  .specs-table td:first-child { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); width: 42%; }
+  .specs-table td.unit-cell { text-align: right; font-weight: 700; color: var(--blue); font-size: 9.5px; }
+  .specs-table td.unit-dash { text-align: right; color: var(--blue); font-size: 13px; font-weight: 300; }
+
+  .specs-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; flex-shrink: 0; border-top: 1px solid var(--border); margin: 0 32px; }
+  .specs-bottom-col { padding: 10px 14px; border-right: 1px solid var(--border); }
+  .specs-bottom-col:last-child { border-right: none; }
+  .sbc-title { font-size: 8.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 7px; }
+  .cert-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+  .cert-badge { background: var(--white); border: 1.5px solid #CCCCCC; border-radius: 3px; padding: 3px 7px; font-size: 9px; font-weight: 700; color: var(--text); }
+  .sbc-note { font-size: 8.5px; color: var(--subtext); margin-top: 4px; }
+  .sbc-status-green { font-size: 10px; font-weight: 700; color: var(--green); margin-bottom: 2px; }
+  .sbc-status-blue  { font-size: 10px; font-weight: 700; color: var(--blue);  margin-bottom: 2px; }
+  .sbc-warranty-line { font-size: 10px; color: var(--text); margin-bottom: 2px; }
+  .sbc-warranty-note { font-size: 8.5px; color: var(--subtext); margin-top: 2px; }
+
+  .fat-section { background: var(--blue); padding: 10px 32px; flex-shrink: 0; margin-top: 8px; }
+  .fat-title { font-size: 8.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); margin-bottom: 7px; }
+  .fat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 20px; }
+  .fat-item { font-size: 9.5px; color: rgba(255,255,255,0.9); display: flex; align-items: flex-start; gap: 6px; line-height: 1.4; }
+  .fat-item::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  /* PAGE 4 — COMPARISON */
+  .comparison-body { flex: 1; display: flex; flex-direction: column; padding: 16px 32px 12px; overflow: hidden; }
+  .comparison-intro-label { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+  .comparison-intro-heading { font-size: 20px; font-weight: 900; color: var(--text); margin-bottom: 7px; line-height: 1.2; }
+  .comparison-intro-para { font-size: 11px; color: var(--subtext); line-height: 1.6; margin-bottom: 12px; }
+  .comparison-table { width: 100%; border-collapse: collapse; font-size: 10.5px; flex: 1; }
+  .comparison-table thead tr { background: var(--dark); }
+  .comparison-table thead th { padding: 9px 16px; text-align: left; font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+  .comparison-table thead th.nfpp-col { color: var(--green); }
+  .comparison-table thead th.lead-col { color: rgba(255,255,255,0.6); }
+  .comparison-table tbody tr:nth-child(even) { background: #F7F7F7; }
+  .comparison-table td { padding: 7px 16px; border-bottom: 1px solid #EBEBEB; color: var(--text); line-height: 1.4; vertical-align: middle; }
+  .comparison-table td:first-child { font-weight: 600; color: var(--mid); width: 28%; }
+  .comparison-table td.win     { color: var(--green); font-weight: 700; }
+  .comparison-table td.neutral { color: #888888; }
+  .comparison-stats { display: grid; grid-template-columns: repeat(4, 1fr); flex-shrink: 0; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .comp-stat { padding: 4px 16px 8px; text-align: center; }
+  .comp-stat-value { font-size: 36px; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 5px; }
+  .comp-stat-label { font-size: 9px; color: var(--subtext); line-height: 1.4; }
+
+  /* PAGE 5 — ECONOMICS */
+  .economics-body { flex: 1; display: flex; flex-direction: column; padding: 14px 32px 10px; overflow: hidden; min-height: 0; gap: 0; }
+  .econ-intro-label { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+  .econ-intro-heading { font-size: 20px; font-weight: 900; color: var(--text); margin-bottom: 5px; line-height: 1.2; }
+  .econ-intro-para { font-size: 10.5px; color: var(--subtext); line-height: 1.6; margin-bottom: 10px; }
+  .econ-main { display: grid; grid-template-columns: 1fr 240px; gap: 16px; flex-shrink: 0; min-height: 0; align-items: start; }
+  .econ-chart-col { display: flex; flex-direction: column; min-height: 0; }
+  .econ-chart-img { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: var(--white); }
+  .econ-chart-img img { width: 100%; height: auto; display: block; }
+  .econ-chart-caption { font-size: 8.5px; color: var(--subtext); margin-top: 4px; line-height: 1.4; }
+  .econ-chart-caption strong { color: var(--green); font-weight: 700; }
+  .econ-assumptions-col { display: flex; flex-direction: column; }
+  .assumptions-title { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); margin-bottom: 7px; }
+  .assumptions-table { width: 100%; border-collapse: collapse; font-size: 10px; margin-bottom: 12px; }
+  .assumptions-table tr { border-bottom: 1px solid var(--border); }
+  .assumptions-table td { padding: 5px 0; color: var(--subtext); line-height: 1.3; vertical-align: middle; }
+  .assumptions-table td:first-child { color: var(--mid); font-size: 9.5px; width: 65%; }
+  .assumptions-table td:last-child { font-weight: 700; color: var(--text); text-align: right; font-size: 10px; }
+  .chart-legend-title { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtext); margin-bottom: 7px; }
+  .chart-legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 9.5px; color: var(--subtext); line-height: 1.35; }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .econ-inline-stats { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; flex-shrink: 0; }
+  .econ-inline-stat { display: flex; align-items: baseline; gap: 6px; line-height: 1.4; }
+  .econ-inline-stat-val { font-size: 8.5px; font-weight: 700; color: var(--green); white-space: nowrap; }
+  .econ-inline-stat-lbl { font-size: 8.5px; color: var(--subtext); line-height: 1.4; }
+
+  .partners-section { flex-shrink: 0; margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .partners-title { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+  .partners-row { display: flex; gap: 0; align-items: center; margin-bottom: 10px; flex-wrap: nowrap; justify-content: space-between; }
+  .partner-logo { height: 34px; max-width: 110px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.75; }
+  .partner-logo.tall { height: 38px; max-width: 120px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page" id="cover">
+  <div class="cover-left">
+    <div class="cover-logo">
+      <img src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="cover-series">Series — M</div>
+    <div class="cover-title">48V<br>Traction<br>Battery</div>
+    <p class="cover-desc">Drop-in lead-acid traction replacement engineered for forklifts, golf carts, airport ground support, and industrial vehicles &mdash; with zero maintenance and bankable economics.</p>
+    <div class="cover-specs">
+      <div class="cover-spec">
+        <div class="cover-spec-val">48<sup>V</sup></div>
+        <div class="cover-spec-lbl">Nominal Voltage</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val small">14.4<sup>kWh</sup></div>
+        <div class="cover-spec-lbl">Energy Capacity</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val">6K<sup>+</sup></div>
+        <div class="cover-spec-lbl">Cycle Life</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val">125<sup>kg</sup></div>
+        <div class="cover-spec-lbl">Weight (300Ah)</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val xsmall">−30/+55<sup>°C</sup></div>
+        <div class="cover-spec-lbl">Operating Temp</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val">95<sup>%</sup></div>
+        <div class="cover-spec-lbl">Round-Trip Efficiency</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val">Zero</div>
+        <div class="cover-spec-lbl">Maintenance Required</div>
+      </div>
+      <div class="cover-spec">
+        <div class="cover-spec-val">10<sup>yr+</sup></div>
+        <div class="cover-spec-lbl">Design Life</div>
+      </div>
+    </div>
+    <div style="margin-top: auto; padding-top: 16px;">
+      <div style="font-size:9px; font-weight:800; letter-spacing:0.2em; color:var(--blue); text-transform:uppercase; margin-bottom:8px;">Energy Storage You Can Bank On</div>
+      <div style="display:flex; flex-direction:column; gap:3px;">
+        <a href="#" style="font-size:10px; color:var(--green); text-decoration:none; font-weight:500;">www.CoulombTechnology.com</a>
+        <span style="font-size:10px; color:rgba(255,255,255,0.7);">sales@coulombtechnology.com</span>
+        <span style="font-size:10px; color:rgba(255,255,255,0.7);">208-768-8888</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-image-wrap">
+      <img src="assets/series_m_hero.png" alt="Series M 48V Traction Battery Pack">
+    </div>
+    <div class="cover-cert-strip">
+      <span class="cover-cert-pill">UL 1973</span>
+      <span class="cover-cert-pill">UL 9540</span>
+      <span class="cover-cert-pill">UN 38.3</span>
+      <span class="cover-cert-pill">IEC 62619</span>
+      <span class="cover-cert-pill">IP54</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 — PRODUCT OVERVIEW -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Product Overview</div>
+        <div class="inner-header-title">Series M <span class="green">48V Traction Battery</span></div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="inner-header-pills">
+      <span class="inner-header-pill">Sodium-Ion NFPP</span>
+      <span class="inner-header-pill">Drop-In Lead-Acid Traction Replacement</span>
+      <span class="inner-header-pill">48V / 300Ah / 14.4 kWh</span>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="overview-top">
+      <div class="overview-img">
+        <img src="assets/series_m_hero.png" alt="Series M 48V Traction Battery">
+      </div>
+      <div class="overview-text-col">
+        <p class="overview-para">The Series M 48V is a direct drop-in replacement for lead-acid traction batteries in forklifts, golf carts, airport ground support equipment, and industrial vehicles. Built on Coulomb Technology's Sodium-Ion NFPP chemistry, it delivers <strong>6,000+ cycle life</strong>, zero maintenance, and a 30% weight reduction &mdash; with no thermal runaway risk and no toxic materials.</p>
+        <div class="overview-includes">Key system features:</div>
+        <div class="overview-bullets">
+          <div class="overview-bullet">48V / 300Ah / 14.4 kWh configuration</div>
+          <div class="overview-bullet">16S2P prismatic sodium-ion cell stack</div>
+          <div class="overview-bullet">Integrated smart BMS with CAN bus</div>
+          <div class="overview-bullet">Opportunity charging compatible</div>
+          <div class="overview-bullet">Standard traction connector interface</div>
+          <div class="overview-bullet">Remote monitoring &amp; diagnostics</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-bar"><span class="section-bar-text">Key Benefits</span></div>
+    <div class="benefits-row">
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7z"/></svg>
+        </div>
+        <div class="benefit-title">Zero Thermal Runaway</div>
+        <p class="benefit-desc">Sodium-Ion NFPP chemistry is inherently non-flammable &mdash; no thermal runaway risk, no toxic gas emissions, and no special handling requirements in confined warehouse environments.</p>
+        <ul class="benefit-checks">
+          <li>No hydrogen gas emissions during charging</li>
+          <li>Safe for indoor charging without ventilation</li>
+          <li>Non-toxic, fully recyclable chemistry</li>
+          <li>Simplified fire suppression requirements</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="benefit-title">Opportunity Charging</div>
+        <p class="benefit-desc">Accepts partial charges without memory effect &mdash; enabling opportunity charging during breaks to maximize fleet uptime without battery degradation.</p>
+        <ul class="benefit-checks">
+          <li>No memory effect &mdash; partial charges safe</li>
+          <li>Fast charge to 80% in under 2 hours</li>
+          <li>6,000+ cycles at 80% DoD</li>
+          <li>10+ year design life</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="benefit-title">Zero Maintenance</div>
+        <p class="benefit-desc">Eliminates watering, equalization, and acid spill cleanup &mdash; reducing total fleet maintenance costs and freeing technicians for higher-value work.</p>
+        <ul class="benefit-checks">
+          <li>No watering or equalization required</li>
+          <li>No acid spills or corrosion risk</li>
+          <li>40% reduction in fleet maintenance labor</li>
+          <li>30% lighter than equivalent lead-acid</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section-bar"><span class="section-bar-text">Where the Series M Performs</span></div>
+    <div class="use-cases-grid">
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_forklift.png" alt="Forklifts and Warehouse"></div>
+        <div class="uc-text">
+          <div class="uc-category">Forklifts / Pallet Jacks / AGVs</div>
+          <div class="uc-title">Warehouse &amp; Logistics</div>
+          <p class="uc-desc">Opportunity charging and zero maintenance for 24/7 warehouse operations &mdash; forklift fleets, pallet jacks, and automated guided vehicles.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_golf_cart.jpg" alt="Golf Carts and Resort Vehicles"></div>
+        <div class="uc-text">
+          <div class="uc-category">Golf Carts / Resort / Hospitality</div>
+          <div class="uc-title">Golf &amp; Resort Fleets</div>
+          <p class="uc-desc">Drop-in replacement for lead-acid in golf cart fleets &mdash; with 3&times; the range per charge, zero watering, and no acid spill risk on turf.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_airport_tug.png" alt="Airport Ground Support Equipment"></div>
+        <div class="uc-text">
+          <div class="uc-category">Airport / Ground Support / GSE</div>
+          <div class="uc-title">Airport Ground Support</div>
+          <p class="uc-desc">Reliable power for baggage tugs, belt loaders, and ground support equipment &mdash; with fast opportunity charging between flights and zero emissions.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_utility_vehicle.jpg" alt="Utility and Campus Vehicles"></div>
+        <div class="uc-text">
+          <div class="uc-category">Utility Vehicles / Campus / Security</div>
+          <div class="uc-title">Utility &amp; Campus Fleets</div>
+          <p class="uc-desc">Zero-emission utility vehicles for campus security, grounds maintenance, and facility operations &mdash; with all-day runtime and overnight charging.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series M &mdash; 48V Traction Battery Pack &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- PAGE 3 — TECHNICAL SPECIFICATIONS -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Technical Data Sheet</div>
+        <div class="inner-header-title">Specifications</div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="specs-top">
+      <div class="specs-img-col">
+        <div class="specs-img-label">Series M &mdash; 48V Battery</div>
+        <div class="specs-img">
+          <img src="assets/series_m_hero.png" alt="Series M 48V Traction Battery">
+        </div>
+      </div>
+      <div class="specs-callouts">
+        <div class="spec-callout">
+          <div class="sc-label">Nominal Voltage</div>
+          <div class="sc-value green">48<span style="font-size:14px;font-weight:700;">V</span></div>
+          <div class="sc-sub">51.2V nominal (16S NFPP)</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Capacity</div>
+          <div class="sc-value dark" style="font-size:20px;">300<span style="font-size:13px;font-weight:700;">Ah</span></div>
+          <div class="sc-sub">14.4 kWh usable energy</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Cycle Life</div>
+          <div class="sc-value blue">6K<span style="font-size:14px;font-weight:700;">+</span></div>
+          <div class="sc-sub">At 80% DoD, 25&deg;C</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Weight</div>
+          <div class="sc-value dark">125<span style="font-size:14px;font-weight:700;">kg</span></div>
+          <div class="sc-sub">30% lighter than lead-acid</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Operating Temp</div>
+          <div class="sc-value dark" style="font-size:18px;">&minus;30/+55<span style="font-size:12px;font-weight:700;">&deg;C</span></div>
+          <div class="sc-sub">Discharge range</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Efficiency</div>
+          <div class="sc-value green">95<span style="font-size:14px;font-weight:700;">%</span></div>
+          <div class="sc-sub">Round-trip efficiency</div>
+        </div>
+      </div>
+    </div>
+    <div class="specs-table-wrap">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Value / Description</th>
+            <th class="unit-col">Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nominal Voltage</td><td>51.2 (16S configuration)</td><td class="unit-cell">VDC</td></tr>
+          <tr><td>Capacity</td><td>300 (14,400 Wh)</td><td class="unit-cell">Ah</td></tr>
+          <tr><td>Cell Configuration</td><td>16S2P prismatic sodium-ion pouch cells</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Usable Capacity</td><td>80&ndash;100% DoD (vs. 50% lead-acid)</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Cycle Life</td><td>6,000+ @ 80% DoD, 25&deg;C</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Cell Type</td><td>Sodium-Ion NFPP (Non-Flammable Polymer Pouch)</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Discharge Temp Range</td><td>&minus;30&deg;C to +55&deg;C</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Charge Temp Range</td><td>&minus;10&deg;C to +45&deg;C</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Self-Discharge Rate</td><td>&lt;3% per month</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Round-Trip Efficiency</td><td>~95%</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>BMS Communication</td><td>Integrated smart BMS; CAN bus / RS-485</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Connector Interface</td><td>Standard traction connector (SB350 / custom)</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Enclosure Rating</td><td>IP54 &mdash; dust and splash resistant</td><td class="unit-dash">&mdash;</td></tr>
+          <tr><td>Dimensions (L&times;W&times;H)</td><td>660 &times; 290 &times; 420 mm (standard tray)</td><td class="unit-dash">&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="specs-bottom">
+      <div class="specs-bottom-col">
+        <div class="sbc-title">Certifications</div>
+        <div class="cert-badges">
+          <span class="cert-badge">UL 1973</span>
+          <span class="cert-badge">UL 9540</span>
+          <span class="cert-badge">UN 38.3</span>
+        </div>
+        <div class="sbc-note">Cell &amp; Module Level</div>
+      </div>
+      <div class="specs-bottom-col">
+        <div class="sbc-title">UL 9540A Testing</div>
+        <div class="sbc-status-green">Cell: Tested &amp; Passed</div>
+        <div class="sbc-status-blue">Module/System: In Progress</div>
+      </div>
+      <div class="specs-bottom-col">
+        <div class="sbc-title">Warranty</div>
+        <div class="sbc-warranty-line">Cell: 3 Years</div>
+        <div class="sbc-warranty-line">System: 5 Years</div>
+        <div class="sbc-warranty-note">Extended warranty available</div>
+      </div>
+    </div>
+    <div class="fat-section">
+      <div class="fat-title">Quality Assurance &amp; Test Scope</div>
+      <div class="fat-grid">
+        <div class="fat-item">Visual, Mechanical &amp; Dimensional Inspection</div>
+        <div class="fat-item">BMS Protections &amp; CAN Bus Communication Tests</div>
+        <div class="fat-item">Functional &amp; Conditioning Cycles</div>
+        <div class="fat-item">3 &times; 0.2C Capacity Verification (80% DoD)</div>
+        <div class="fat-item">Baseline OCV &amp; Self-Discharge Measurement</div>
+        <div class="fat-item">Vibration &amp; IP54 Seal Verification</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series M &mdash; 48V Traction Battery Pack &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- PAGE 4 — TECHNOLOGY COMPARISON -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Technology Comparison</div>
+        <div class="inner-header-title">Sodium-Ion NFPP <span class="green">vs. Lead-Acid Traction</span></div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="inner-header-pills">
+      <span class="inner-header-pill">Performance</span>
+      <span class="inner-header-pill">Safety</span>
+      <span class="inner-header-pill">Total Cost of Ownership</span>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="comparison-body">
+      <div class="comparison-intro-label">Why Sodium-Ion NFPP Outperforms Legacy Lead-Acid Traction Technology</div>
+      <div class="comparison-intro-heading">A Clear Advantage Across Every Performance Dimension</div>
+      <p class="comparison-intro-para">Coulomb Technology's Sodium-Ion NFPP chemistry delivers superior cycle life, opportunity charging capability, zero maintenance, and a safer operating profile &mdash; making it the definitive upgrade for lead-acid traction battery fleets.</p>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="nfpp-col">Sodium-Ion NFPP</th>
+            <th class="lead-col">Lead-Acid Traction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cycle Life</td><td class="win">6,000+ cycles @ 80% DoD</td><td class="neutral">1,000&ndash;1,500 cycles @ 50% DoD</td></tr>
+          <tr><td>Weight (300Ah / 48V)</td><td class="win">125 kg</td><td class="neutral">~180 kg</td></tr>
+          <tr><td>Usable Capacity</td><td class="win">80&ndash;100% DoD</td><td class="neutral">50% DoD (to preserve life)</td></tr>
+          <tr><td>Discharge Temp Range</td><td class="win">&minus;30&deg;C to +55&deg;C</td><td class="neutral">&minus;20&deg;C to +45&deg;C</td></tr>
+          <tr><td>Opportunity Charging</td><td class="win">Full support &mdash; no degradation</td><td class="neutral">Not recommended &mdash; reduces life</td></tr>
+          <tr><td>Maintenance</td><td class="win">Zero maintenance</td><td class="neutral">Weekly watering &amp; equalization</td></tr>
+          <tr><td>Hydrogen Gas Emissions</td><td class="win">None</td><td class="neutral">Emitted during charging</td></tr>
+          <tr><td>Charging Efficiency</td><td class="win">~95%</td><td class="neutral">~75%</td></tr>
+          <tr><td>Thermal Runaway Risk</td><td class="win">Zero risk</td><td class="neutral">Low risk</td></tr>
+          <tr><td>Memory Effect</td><td class="win">None</td><td class="neutral">Sulfation if undercharged</td></tr>
+          <tr><td>Lifespan</td><td class="win">10+ years</td><td class="neutral">3&ndash;5 years</td></tr>
+          <tr><td>Environmental Impact</td><td class="win">Non-toxic, recyclable</td><td class="neutral">Lead &amp; acid hazardous waste</td></tr>
+        </tbody>
+      </table>
+      <div class="comparison-stats">
+        <div class="comp-stat">
+          <div class="comp-stat-value">6&times;</div>
+          <div class="comp-stat-label">Longer cycle life<br>vs. lead-acid traction</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">30%</div>
+          <div class="comp-stat-label">Lighter weight<br>per 300Ah pack</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">Zero</div>
+          <div class="comp-stat-label">Maintenance<br>required</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">95%</div>
+          <div class="comp-stat-label">Round-trip<br>efficiency</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series M &mdash; 48V Traction Battery Pack &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- PAGE 5 — BANKABLE ECONOMICS -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Total Cost of Ownership</div>
+        <div class="inner-header-title">Bankable <span class="green">Economics</span></div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="economics-body">
+      <div class="econ-intro-label">System Advantage Over Lead-Acid Traction</div>
+      <div class="econ-intro-heading">31% Lower Total Cost of Ownership Over 10 Years</div>
+      <p class="econ-intro-para">Sodium-Ion NFPP eliminates replacement costs, maintenance overhead, and hazardous disposal &mdash; delivering a 31% lower 10-year TCO vs. lead-acid traction, validated by real-world fleet deployments.</p>
+      <div class="econ-main">
+        <div class="econ-chart-col">
+          <div class="econ-chart-img">
+            <img src="assets/tco_chart.png" alt="Total Cost of Ownership Comparison">
+          </div>
+          <div class="econ-chart-caption">
+            <strong>31% Lower TCO</strong> &mdash; $123/kWh (NFPP) vs. $178/kWh (Lead-Acid) over 10 years. Savings driven by eliminated replacements, zero maintenance, and lower disposal costs.
+          </div>
+          <div class="econ-inline-stats">
+            <div class="econ-inline-stat">
+              <div class="econ-inline-stat-val">31%</div>
+              <div class="econ-inline-stat-lbl">&mdash; Lower 10-year TCO vs. lead-acid ($123 vs. $178/kWh)</div>
+            </div>
+            <div class="econ-inline-stat">
+              <div class="econ-inline-stat-val">Zero</div>
+              <div class="econ-inline-stat-lbl">&mdash; Maintenance cost &mdash; no watering, no equalization</div>
+            </div>
+            <div class="econ-inline-stat">
+              <div class="econ-inline-stat-val">10yr+</div>
+              <div class="econ-inline-stat-lbl">&mdash; Design life vs. 3&ndash;5 years for lead-acid traction</div>
+            </div>
+          </div>
+        </div>
+        <div class="econ-assumptions-col">
+          <div class="assumptions-title">Model Assumptions</div>
+          <table class="assumptions-table">
+            <tr><td>Lead-acid replacement cycle</td><td>3&ndash;5 yr</td></tr>
+            <tr><td>NFPP design life</td><td>10+ yr</td></tr>
+            <tr><td>Analysis period</td><td>10 yr</td></tr>
+            <tr><td>Lead-acid replacements</td><td>2&times;</td></tr>
+            <tr><td>Maintenance cost delta</td><td>100%</td></tr>
+            <tr><td>Weight savings (300Ah)</td><td>30%</td></tr>
+            <tr><td>Charging efficiency delta</td><td>20%</td></tr>
+            <tr><td>Discount rate / NPV calc</td><td>8%</td></tr>
+          </table>
+          <div class="chart-legend-title">Cost Components</div>
+          <div class="chart-legend-grid">
+            <div class="legend-item"><span class="legend-swatch" style="background:#0044BB;"></span>Lead-Acid &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#3A8000;"></span>NFPP &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#2266DD;"></span>Lead-Acid &mdash; Replacement</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#6BBF00;"></span>NFPP &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#4488EE;"></span>Lead-Acid &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#8FD430;"></span>NFPP &mdash; Disposal</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#77AAFF;"></span>Lead-Acid &mdash; Disposal</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#AACCFF;"></span>Lead-Acid &mdash; Downtime</div>
+          </div>
+        </div>
+      </div>
+      <div class="partners-section" style="margin-top: 8px;">
+        <div class="partners-title">Research &amp; Development Partners</div>
+        <div class="partners-row">
+          <img class="partner-logo tall" src="assets/partners/oak_ridge.png" alt="Oak Ridge National Laboratory">
+          <img class="partner-logo tall" src="assets/partners/argonne.png" alt="Argonne National Laboratory">
+          <img class="partner-logo tall" src="assets/partners/rutgers.png" alt="Rutgers University">
+          <img class="partner-logo tall" src="assets/partners/nuvation.svg" alt="Nuvation Energy">
+          <img class="partner-logo tall" src="assets/partners/spark_cleantech.png" alt="Spark Cleantech Accelerator">
+        </div>
+        <div class="partners-row">
+          <img class="partner-logo tall" src="assets/partners/neny.png" alt="New Energy New York">
+          <img class="partner-logo tall" src="assets/partners/nei_corp.png" alt="NEI Corporation">
+          <img class="partner-logo tall" src="assets/partners/cleantech_open.png" alt="Cleantech Open">
+          <img class="partner-logo tall" src="assets/partners/innovation_crossroads.png" alt="Innovation Crossroads">
+          <img class="partner-logo tall" src="assets/partners/cradle_to_commerce.png" alt="Cradle to Commerce">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series M &mdash; 48V Traction Battery Pack &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+</body>
+</html>
