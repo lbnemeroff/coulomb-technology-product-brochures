@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coulomb Technology — Series B 279V+ Smart Battery Cabinet</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green:   #5CB800;
+    --blue:    #0066FF;
+    --dark:    #1E1E1E;
+    --mid:     #3A3A3A;
+    --light:   #F5F5F5;
+    --white:   #FFFFFF;
+    --border:  #E0E0E0;
+    --text:    #1A1A1A;
+    --subtext: #555555;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #BBBBBB;
+    color: var(--text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    body { background: none; margin: 0; padding: 0; display: block; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; break-after: page; page-break-inside: avoid; }
+    @page { margin: 0; size: 816px 1040px; }
+  }
+  .page {
+    width: 816px;
+    height: 1040px;
+    background: var(--white);
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── SHARED INNER HEADER ── */
+  .inner-header {
+    background: var(--dark);
+    padding: 14px 32px 12px;
+    flex-shrink: 0;
+  }
+  .inner-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .inner-header-section {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .inner-header-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .inner-header-title .green { color: var(--green); }
+  .inner-header-title .blue  { color: var(--blue); }
+  .inner-header-logo {
+    height: 36px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    object-position: right center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    margin-left: 16px;
+  }
+  .inner-header-pills {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+  }
+  .inner-header-pill {
+    font-size: 10px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .inner-header-pill::before {
+    content: '•';
+    color: var(--green);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .header-rule { height: 2px; background: var(--green); flex-shrink: 0; }
+
+  /* ── SHARED FOOTER ── */
+  .page-footer {
+    background: #1E1E1E;
+    padding: 7px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .footer-left   { font-size: 9px; color: rgba(255,255,255,0.6); font-weight: 500; }
+  .footer-center { font-size: 9px; color: var(--green); font-weight: 600; }
+  .footer-right  { font-size: 9px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--white);
+    min-height: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     PAGE 1 — COVER
+  ══════════════════════════════════════════ */
+  #cover {
+    flex-direction: column;
+    background: #FFFFFF;
+  }
+  .cover-header {
+    background: #FFFFFF;
+    padding: 28px 44px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  .cover-logo img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .cover-series-badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .cover-title-block {
+    padding: 22px 44px 10px;
+    flex-shrink: 0;
+  }
+  .cover-title {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  .cover-title .green { color: var(--green); }
+  .cover-image-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 44px;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .cover-image-zone img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .cover-divider {
+    height: 3px;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .cover-spec-strip {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background: var(--dark);
+    flex-shrink: 0;
+  }
+  .cover-spec-item {
+    padding: 10px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .cover-spec-item:last-child { border-right: none; }
+  .cover-spec-val {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .cover-spec-val sup { font-size: 10px; font-weight: 700; vertical-align: super; }
+  .cover-spec-val.green { color: var(--green); }
+  .cover-spec-lbl {
+    font-size: 7.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.3;
+  }
+  .cover-footer {
+    background: var(--dark);
+    padding: 10px 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cover-footer-tagline {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .cover-footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cover-footer-contact-val { font-size: 9px; color: rgba(255,255,255,0.65); }
+  .cover-footer-contact-sep { font-size: 9px; color: rgba(255,255,255,0.3); }
+
+  /* ══════════════════════════════════════════
+     PAGE 2 — PRODUCT OVERVIEW
+  ══════════════════════════════════════════ */
+  .overview-top {
+    display: flex;
+    gap: 20px;
+    padding: 16px 32px 12px;
+    flex-shrink: 0;
+  }
+  .overview-img {
+    width: 160px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .overview-img img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    display: block;
+  }
+  .overview-text-col { flex: 1; }
+  .overview-para {
+    font-size: 10.5px;
+    color: var(--subtext);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .overview-includes {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .overview-bullets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 16px;
+  }
+  .overview-bullet {
+    font-size: 9.5px;
+    color: var(--subtext);
+    padding: 3px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .overview-bullet::before {
+    content: '•';
+    color: var(--green);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Section Bar */
+  .section-bar {
+    background: var(--blue);
+    padding: 9px 32px;
+    flex-shrink: 0;
+  }
+  .section-bar-text {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* Benefits */
+  .benefits-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 14px 32px 12px;
+    flex-shrink: 0;
+  }
+  .benefit-col {
+    padding: 0 16px 0 0;
+    border-right: 1px solid var(--border);
+  }
+  .benefit-col:last-child { border-right: none; padding-right: 0; }
+  .benefit-col:not(:first-child) { padding-left: 16px; }
+  .benefit-icon-box {
+    width: 38px;
+    height: 38px;
+    border: 2px solid var(--green);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .benefit-icon-box svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .benefit-title { font-size: 12px; font-weight: 800; color: var(--text); margin-bottom: 5px; }
+  .benefit-desc { font-size: 9.5px; color: var(--subtext); line-height: 1.55; margin-bottom: 7px; }
+  .benefit-checks { list-style: none; padding: 0; }
+  .benefit-checks li {
+    font-size: 9px;
+    color: var(--subtext);
+    padding: 3px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .benefit-checks li:last-child { border-bottom: none; }
+  .benefit-checks li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 10px; flex-shrink: 0; }
+
+  /* Use Cases */
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .uc-col {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .uc-col:last-child { border-right: none; }
+  .uc-photo {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .uc-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .uc-text {
+    padding: 8px 10px;
+    flex-shrink: 0;
+    border-top: 3px solid var(--blue);
+  }
+  .uc-category { font-size: 8px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 2px; }
+  .uc-title { font-size: 11px; font-weight: 800; color: var(--text); margin-bottom: 3px; line-height: 1.2; }
+  .uc-desc { font-size: 9px; color: var(--subtext); line-height: 1.5; }
+
+  /* ══════════════════════════════════════════
+     PAGE 3 — SMART EMS + ECONOMICS + PARTNERS
+  ══════════════════════════════════════════ */
+  .p3-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 14px 32px 0;
+    min-height: 0;
+    justify-content: space-between;
+  }
+
+  /* EMS intro */
+  .ems-intro { margin-bottom: 10px; flex-shrink: 0; }
+  .ems-intro-label { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+  .ems-intro-heading { font-size: 17px; font-weight: 900; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+  .ems-intro-para { font-size: 9.5px; color: var(--subtext); line-height: 1.55; }
+
+  /* EMS 3-card grid */
+  .ems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex-shrink: 0; }
+  .ems-card {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+  .ems-card-header {
+    background: var(--dark);
+    padding: 8px 12px;
+    flex-shrink: 0;
+  }
+  .ems-card-badge {
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 2px;
+  }
+  .ems-card-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .ems-card-title span { color: var(--green); }
+  .ems-card-screen {
+    height: 120px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #0A0A0A;
+  }
+  .ems-card-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .ems-card-body { padding: 8px 12px 10px; flex: 1; }
+  .ems-card-desc { font-size: 9px; color: var(--subtext); line-height: 1.55; margin-bottom: 7px; }
+  .ems-card-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0; }
+  .ems-card-features li {
+    font-size: 8.5px;
+    color: var(--subtext);
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 3px 0;
+    border-bottom: 1px solid #F0F0F0;
+    line-height: 1.4;
+  }
+  .ems-card-features li:last-child { border-bottom: none; }
+  .ems-card-features li::before { content: '→'; color: var(--blue); font-weight: 700; font-size: 9px; flex-shrink: 0; line-height: 1.3; }
+
+  /* BMS Protections section */
+  .bms-section { flex-shrink: 0; margin-top: 0; }
+  .bms-section-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .bms-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+  .bms-item {
+    background: #F5F5F7;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .bms-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--dark);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .bms-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .bms-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* Economics section */
+  .econ-section { flex-shrink: 0; margin-top: 0; }
+  .econ-section-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+  .econ-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .econ-stat-box { padding: 12px 12px; border-right: 1px solid var(--border); text-align: center; }
+  .econ-stat-box:last-child { border-right: none; }
+  .econ-stat-val { font-size: 24px; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+  .econ-stat-val.green { color: var(--green); }
+  .econ-stat-lbl { font-size: 8.5px; font-weight: 600; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.07em; line-height: 1.4; text-align: center; }
+
+  .econ-bullets-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+  .econ-bullet { font-size: 9.5px; color: var(--subtext); line-height: 1.5; display: flex; align-items: flex-start; gap: 6px; }
+  .econ-bullet-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 4px; }
+
+  /* Partners section */
+  .partners-section { flex-shrink: 0; margin-top: 0; padding-bottom: 8px; }
+  .partners-title { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .partners-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+  .partner-logo { height: 30px; width: auto; max-width: 110px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; }
+  .partner-logo.tall { height: 34px; }
+
+  /* ══════════════════════════════════════════
+     PAGE 4 — TECHNICAL SPECIFICATIONS
+  ══════════════════════════════════════════ */
+  .specs-top {
+    display: flex;
+    gap: 20px;
+    padding: 14px 32px 10px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .specs-img-col {
+    width: 140px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .specs-img-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--subtext);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .specs-img {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .specs-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .specs-callouts {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 12px;
+    align-content: start;
+  }
+  .spec-callout {
+    padding: 8px 10px;
+    background: #F7F7F7;
+    border-radius: 4px;
+    border-left: 3px solid var(--green);
+  }
+  .sc-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--subtext); margin-bottom: 2px; }
+  .sc-value { font-size: 22px; font-weight: 900; color: var(--dark); line-height: 1; margin-bottom: 2px; }
+  .sc-value.green { color: var(--green); }
+  .sc-value.blue  { color: var(--blue); }
+  .sc-value.dark  { color: var(--dark); }
+  .sc-sub { font-size: 8.5px; color: var(--subtext); line-height: 1.4; }
+
+  /* Specs table */
+  .specs-table-wrap {
+    flex: 1;
+    padding: 6px 32px 0;
+    overflow: hidden;
+  }
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+  }
+  .specs-table thead tr { background: var(--dark); }
+  .specs-table thead th {
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .specs-table thead th.unit-col {
+    color: var(--green);
+    text-align: right;
+    width: 80px;
+  }
+  .specs-table tbody tr:nth-child(even) { background: #F7F7F7; }
+  .specs-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #EBEBEB;
+    color: var(--text);
+    line-height: 1.4;
+    vertical-align: middle;
+  }
+  .specs-table td:first-child {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    width: 42%;
+  }
+  .specs-table td.unit-cell {
+    text-align: right;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 9.5px;
+  }
+  .specs-table td.unit-dash {
+    text-align: right;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  /* Bottom 3-col */
+  .specs-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-shrink: 0;
+    border-top: 1px solid var(--border);
+    margin: 8px 32px 0;
+  }
+  .specs-bottom-col {
+    padding: 10px 14px;
+    border-right: 1px solid var(--border);
+  }
+  .specs-bottom-col:last-child { border-right: none; }
+  .sbc-title {
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 7px;
+  }
+  .cert-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+  .cert-badge {
+    background: var(--white);
+    border: 1.5px solid #CCCCCC;
+    border-radius: 3px;
+    padding: 3px 7px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .sbc-note { font-size: 8.5px; color: var(--subtext); margin-top: 4px; }
+  .sbc-status-green { font-size: 10px; font-weight: 700; color: var(--green); margin-bottom: 2px; }
+  .sbc-status-blue  { font-size: 10px; font-weight: 700; color: var(--blue);  margin-bottom: 2px; }
+  .sbc-warranty-line { font-size: 10px; color: var(--text); margin-bottom: 2px; }
+  .sbc-warranty-note { font-size: 8.5px; color: var(--subtext); }
+
+  /* FAT section */
+  .fat-section {
+    background: var(--blue);
+    padding: 10px 32px;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .fat-title {
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 7px;
+  }
+  .fat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 20px;
+  }
+  .fat-item {
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+  }
+  .fat-item::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════════ -->
+<div class="page" id="cover">
+  <!-- Header: Logo + Series Badge -->
+  <div class="cover-header">
+    <div class="cover-logo">
+      <img src="assets/coulomb_logo_black_brandgreen.png" alt="Coulomb Technology">
+    </div>
+    <div class="cover-series-badge">Series — B</div>
+  </div>
+
+  <!-- Hero Title -->
+  <div class="cover-title-block">
+    <div class="cover-title">279V+ <span class="green">Smart</span><br>Battery Cabinet</div>
+  </div>
+
+  <!-- Product Image -->
+  <div class="cover-image-zone">
+    <img src="assets/series_b_hero_final.png" alt="Series B 279V+ Smart Battery Cabinet">
+  </div>
+
+  <!-- Green accent divider -->
+  <div class="cover-divider"></div>
+
+  <!-- Spec Strip: 8 specs -->
+  <div class="cover-spec-strip">
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">279<sup>V+</sup></div>
+      <div class="cover-spec-lbl">Nominal<br>Voltage</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">50<sup>kWh</sup></div>
+      <div class="cover-spec-lbl">Nameplate<br>Energy</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">25<sup>kW</sup></div>
+      <div class="cover-spec-lbl">Max Rated<br>Power</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">6K<sup>+</sup></div>
+      <div class="cover-spec-lbl">Cycle Life<br>@ 80% DoD</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val" style="font-size:16px;">−40/+55<sup>°C</sup></div>
+      <div class="cover-spec-lbl">Operating<br>Temp</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val">IP54</div>
+      <div class="cover-spec-lbl">Enclosure<br>Rating</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val" style="font-size:16px;">20<sup>yr</sup></div>
+      <div class="cover-spec-lbl">Design<br>Life</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">Smart</div>
+      <div class="cover-spec-lbl">EnergiOS™<br>Enabled</div>
+    </div>
+  </div>
+
+  <!-- Dark Footer -->
+  <div class="cover-footer">
+    <div class="cover-footer-tagline">Energy Storage You Can Bank On</div>
+    <div class="cover-footer-contact">
+      <span class="cover-footer-contact-val">www.CoulombTechnology.com</span>
+      <span class="cover-footer-contact-sep">·</span>
+      <span class="cover-footer-contact-val">sales@coulombtechnology.com</span>
+      <span class="cover-footer-contact-sep">·</span>
+      <span class="cover-footer-contact-val">208-768-8888</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — PRODUCT OVERVIEW
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Product Overview</div>
+        <div class="inner-header-title">Series B <span class="green">279V+</span> Smart Battery</div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="inner-header-pills">
+      <span class="inner-header-pill">Sodium-Ion NFPP</span>
+      <span class="inner-header-pill">Air-Cooled Cabinet</span>
+      <span class="inner-header-pill">EnergiOS™ Smart EMS</span>
+      <span class="inner-header-pill">IP54 Outdoor-Rated</span>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+
+  <div class="page-body">
+    <div class="overview-top">
+      <div class="overview-img">
+        <img src="assets/series_b_hero_final.png" alt="Series B 279V+ Smart Battery Cabinet">
+      </div>
+      <div class="overview-text-col">
+        <p class="overview-para">The Series B 279V+ is a commercial-grade, intelligent battery cabinet built for demanding C&amp;I and light-utility applications. Powered by Coulomb Technology's Sodium-Ion NFPP chemistry and integrated with the EnergiOS™ Smart EMS platform, it delivers <strong>6,000+ cycles at 80% DoD</strong>, a 20-year design life, and zero-maintenance operation across extreme temperature ranges — with no thermal runaway risk and no HVAC required.</p>
+        <p class="overview-para">Designed for commercial facilities, solar integrators, and critical infrastructure operators who demand intelligent energy management, bankable economics, and AHJ-friendly installation.</p>
+        <div class="overview-includes">Complete system includes:</div>
+        <div class="overview-bullets">
+          <div class="overview-bullet">Sodium-Ion NFPP battery modules</div>
+          <div class="overview-bullet">Integrated BMS with 8 intelligent protections</div>
+          <div class="overview-bullet">Air-cooled thermal management (no HVAC)</div>
+          <div class="overview-bullet">EnergiOS™ Smart EMS — real-time monitoring</div>
+          <div class="overview-bullet">IP54-rated outdoor enclosure</div>
+          <div class="overview-bullet">Fire suppression &amp; gas detection systems</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-bar"><span class="section-bar-text">Key Benefits</span></div>
+
+    <div class="benefits-row">
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7z"/></svg>
+        </div>
+        <div class="benefit-title">Safety-First Design</div>
+        <p class="benefit-desc">Sodium-Ion NFPP chemistry eliminates thermal runaway risk — enabling safer siting, simpler AHJ approvals, and no fire suppression complexity.</p>
+        <ul class="benefit-checks">
+          <li>Zero thermal runaway incidents</li>
+          <li>No toxic gas emissions</li>
+          <li>Air-shippable — faster deployment</li>
+          <li>Cleaner AHJ approvals</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="benefit-title">Extreme Performance</div>
+        <p class="benefit-desc">Operates from −40°C to +55°C without derating or HVAC infrastructure — ideal for outdoor installations, cold storage, and industrial environments.</p>
+        <ul class="benefit-checks">
+          <li>−40°C to +55°C operation</li>
+          <li>No HVAC required</li>
+          <li>Minimal capacity derating</li>
+          <li>Fast charging capability</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-icon-box">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="benefit-title">Intelligent &amp; Bankable</div>
+        <p class="benefit-desc">Built-in EnergiOS™ Smart EMS transforms the cabinet into an active energy asset — optimizing dispatch, enabling VPP participation, and maximizing ROI.</p>
+        <ul class="benefit-checks">
+          <li>6,000+ cycles @ 80% DoD</li>
+          <li>20-year design life</li>
+          <li>ITC eligible with solar PV</li>
+          <li>Demand response &amp; VPP ready</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-bar"><span class="section-bar-text">Where the Series B Performs</span></div>
+
+    <div class="use-cases-grid">
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_peak_demand.jpg" alt="Peak Demand Management"></div>
+        <div class="uc-text">
+          <div class="uc-category">Manufacturing / Cold Storage / Distribution</div>
+          <div class="uc-title">Peak Demand Management</div>
+          <p class="uc-desc">Reduce demand charges 30–50% at manufacturing facilities, cold storage, and distribution centers while maintaining full capacity in extreme temperatures.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_critical_backup.jpg" alt="Critical Infrastructure Backup"></div>
+        <div class="uc-text">
+          <div class="uc-category">Data Centers / Healthcare / Telecom</div>
+          <div class="uc-title">Critical Infrastructure</div>
+          <p class="uc-desc">Guaranteed uptime for data centers, hospitals, and telecom — with air-cooled simplicity, intelligent monitoring, and no fire suppression complexity.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_material_handling.jpg" alt="Material Handling and Fleet"></div>
+        <div class="uc-text">
+          <div class="uc-category">Forklift / Warehouse / Port / Airport</div>
+          <div class="uc-title">Material Handling &amp; Fleet</div>
+          <p class="uc-desc">Fast charging and extreme temp tolerance for 24/7 operations — forklift fleets, warehouse automation, port equipment, and airport ground support.</p>
+        </div>
+      </div>
+      <div class="uc-col">
+        <div class="uc-photo"><img src="assets/uc_renewable.jpg" alt="Renewable Energy Integration"></div>
+        <div class="uc-text">
+          <div class="uc-category">Solar / Wind / Campus / Community</div>
+          <div class="uc-title">Renewable Integration</div>
+          <p class="uc-desc">Long-duration storage with 20-year design life for bankable solar + storage projects, campus microgrids, wind smoothing, and community solar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">Series B &mdash; 279V+ Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 — SMART EMS + ECONOMICS + PARTNERS
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Intelligent Energy Management &amp; Economics</div>
+        <div class="inner-header-title">Smart EMS <span class="green">Platform</span> &amp; Value</div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="inner-header-pills">
+      <span class="inner-header-pill">EnergiOS&trade;</span>
+      <span class="inner-header-pill">Coulomb AI&trade;</span>
+      <span class="inner-header-pill">GridIQ&trade;</span>
+      <span class="inner-header-pill">8 BMS Protections</span>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="p3-body">
+
+      <!-- EMS Intro -->
+      <div class="ems-intro">
+        <div class="ems-intro-label">Three Technologies. One Intelligent Platform.</div>
+        <div class="ems-intro-heading">Not Just a Cabinet &mdash; An Intelligent Energy Platform</div>
+        <p class="ems-intro-para">The Series B integrates with Coulomb Technology's Smart EMS platform &mdash; a suite of three proprietary software technologies that transform your battery cabinet into an active, revenue-generating energy asset. Monitor, optimize, and control your energy in real time from any device.</p>
+      </div>
+
+      <!-- EMS 3-card grid -->
+      <div class="ems-grid">
+
+        <!-- EnergiOS -->
+        <div class="ems-card">
+          <div class="ems-card-header">
+            <div class="ems-card-badge">Operating System</div>
+            <div class="ems-card-title">Energi<span>OS</span>&trade;</div>
+          </div>
+          <div class="ems-card-screen">
+            <img src="assets/energios_dashboard.png" alt="EnergiOS Dashboard">
+          </div>
+          <div class="ems-card-body">
+            <p class="ems-card-desc">The intelligent operating system for your energy storage. Provides real-time monitoring, automated charge/discharge scheduling, and seamless solar integration.</p>
+            <ul class="ems-card-features">
+              <li>Real-time SOC, power flow &amp; health monitoring</li>
+              <li>Automated TOU &amp; solar charge scheduling</li>
+              <li>Remote access via web &amp; mobile app</li>
+              <li>Alerts, diagnostics &amp; OTA firmware updates</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Coulomb AI -->
+        <div class="ems-card">
+          <div class="ems-card-header">
+            <div class="ems-card-badge">Artificial Intelligence</div>
+            <div class="ems-card-title">Coulomb <span>AI</span>&trade;</div>
+          </div>
+          <div class="ems-card-screen">
+            <img src="assets/coulomb_ai_dashboard.png" alt="Coulomb AI Dashboard">
+          </div>
+          <div class="ems-card-body">
+            <p class="ems-card-desc">Machine learning algorithms that learn energy usage patterns, weather forecasts, and utility rates to autonomously optimize dispatch and maximize savings.</p>
+            <ul class="ems-card-features">
+              <li>Predictive load forecasting &amp; solar yield modeling</li>
+              <li>Autonomous dispatch optimization</li>
+              <li>Dynamic rate arbitrage (TOU, demand charges)</li>
+              <li>Continuous learning &mdash; improves over time</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- GridIQ -->
+        <div class="ems-card">
+          <div class="ems-card-header">
+            <div class="ems-card-badge">Grid Intelligence</div>
+            <div class="ems-card-title">Grid<span>IQ</span>&trade;</div>
+          </div>
+          <div class="ems-card-screen">
+            <img src="assets/gridiq_dashboard.png" alt="GridIQ Dashboard">
+          </div>
+          <div class="ems-card-body">
+            <p class="ems-card-desc">Advanced grid interaction capabilities enabling virtual power plant participation, demand response programs, and utility incentive monetization.</p>
+            <ul class="ems-card-features">
+              <li>Virtual power plant (VPP) participation</li>
+              <li>Demand response &amp; utility incentive programs</li>
+              <li>Grid frequency regulation support</li>
+              <li>Export control &amp; islanding management</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 8 Intelligent BMS Protections -->
+      <div class="bms-section">
+        <div class="bms-section-label">8 Intelligent BMS Protections</div>
+        <div class="bms-grid">
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <div class="bms-label">Overcharge<br>Protection</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+            <div class="bms-label">Overcurrent<br>Protection</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+            <div class="bms-label">Overdischarge<br>Protection</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 5v6m0 4v.01"/></svg></div>
+            <div class="bms-label">Overheat<br>Protection</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div>
+            <div class="bms-label">Temperature<br>Management</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+            <div class="bms-label">Short Circuit<br>Protection</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+            <div class="bms-label">Balanced<br>Power</div>
+          </div>
+          <div class="bms-item">
+            <div class="bms-icon"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+            <div class="bms-label">Reverse<br>Connection</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Economics -->
+      <div class="econ-section">
+        <div class="econ-section-label">Total Cost of Ownership Advantage</div>
+        <div class="econ-stats-row">
+          <div class="econ-stat-box">
+            <div class="econ-stat-val green">20<span style="font-size:14px;">yr</span></div>
+            <div class="econ-stat-lbl">Design Life<br>vs. 3–5 yr Lead-Acid</div>
+          </div>
+          <div class="econ-stat-box">
+            <div class="econ-stat-val">Zero</div>
+            <div class="econ-stat-lbl">Maintenance Cost<br>Over Lifetime</div>
+          </div>
+          <div class="econ-stat-box">
+            <div class="econ-stat-val green">6K<span style="font-size:14px;">+</span></div>
+            <div class="econ-stat-lbl">Cycles @ 80% DoD<br>vs. 300–500 Lead-Acid</div>
+          </div>
+          <div class="econ-stat-box">
+            <div class="econ-stat-val">50%</div>
+            <div class="econ-stat-lbl">Demand Charge<br>Reduction Potential</div>
+          </div>
+        </div>
+        <div class="econ-bullets-row">
+          <div class="econ-bullet">
+            <div class="econ-bullet-dot"></div>
+            <div><strong>No replacement costs</strong> &mdash; 20-year design life eliminates the 3–4 lead-acid replacement cycles over the same period.</div>
+          </div>
+          <div class="econ-bullet">
+            <div class="econ-bullet-dot"></div>
+            <div><strong>Zero maintenance overhead</strong> &mdash; no watering, no equalization, no acid spill cleanup, no HVAC servicing.</div>
+          </div>
+          <div class="econ-bullet">
+            <div class="econ-bullet-dot"></div>
+            <div><strong>ITC eligible</strong> &mdash; qualifies for 30% federal Investment Tax Credit when paired with solar PV systems.</div>
+          </div>
+          <div class="econ-bullet">
+            <div class="econ-bullet-dot"></div>
+            <div><strong>Utility incentives</strong> &mdash; GridIQ&trade; enables demand response and VPP revenue participation for additional income streams.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- R&D Partners -->
+      <div class="partners-section">
+        <div class="partners-title">Research &amp; Development Partners</div>
+        <div class="partners-row">
+          <img class="partner-logo tall" src="assets/partners/oak_ridge.png" alt="Oak Ridge National Laboratory">
+          <img class="partner-logo tall" src="assets/partners/argonne.png" alt="Argonne National Laboratory">
+          <img class="partner-logo tall" src="assets/partners/rutgers.png" alt="Rutgers University">
+          <img class="partner-logo tall" src="assets/partners/nuvation.svg" alt="Nuvation Energy">
+          <img class="partner-logo tall" src="assets/partners/spark_cleantech.png" alt="Spark Cleantech Accelerator">
+        </div>
+        <div class="partners-row">
+          <img class="partner-logo tall" src="assets/partners/neny.png" alt="New Energy New York">
+          <img class="partner-logo tall" src="assets/partners/nei_corp.png" alt="NEI Corporation">
+          <img class="partner-logo tall" src="assets/partners/cleantech_open.png" alt="Cleantech Open">
+          <img class="partner-logo tall" src="assets/partners/innovation_crossroads.png" alt="Innovation Crossroads">
+          <img class="partner-logo tall" src="assets/partners/cradle_to_commerce.png" alt="Cradle to Commerce">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series B &mdash; 279V+ Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 — TECHNICAL SPECIFICATIONS
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Technical Data Sheet</div>
+        <div class="inner-header-title">Specifications</div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+  </div>
+  <div class="header-rule"></div>
+  <div class="page-body">
+    <div class="specs-top">
+      <div class="specs-img-col">
+        <div class="specs-img-label">Series B &mdash; 279V+ Cabinet</div>
+        <div class="specs-img">
+          <img src="assets/series_b_hero_final.png" alt="Series B 279V+ Smart Battery Cabinet">
+        </div>
+      </div>
+      <div class="specs-callouts">
+        <div class="spec-callout">
+          <div class="sc-label">Nominal Voltage</div>
+          <div class="sc-value green">279<span style="font-size:13px;font-weight:700;">V+</span></div>
+          <div class="sc-sub">High-voltage DC bus</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Nameplate Energy</div>
+          <div class="sc-value dark" style="font-size:20px;">50<span style="font-size:12px;font-weight:700;">kWh</span></div>
+          <div class="sc-sub">42.5 kWh usable at 85% DoD</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Cycle Life</div>
+          <div class="sc-value blue">6K<span style="font-size:13px;font-weight:700;">+</span></div>
+          <div class="sc-sub">At 80% DoD, 25&deg;C</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Max Rated Power</div>
+          <div class="sc-value dark">25<span style="font-size:13px;font-weight:700;">kW</span></div>
+          <div class="sc-sub">Continuous discharge</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Operating Temp</div>
+          <div class="sc-value dark" style="font-size:18px;">−40/+55<span style="font-size:11px;font-weight:700;">°C</span></div>
+          <div class="sc-sub">No HVAC — any climate</div>
+        </div>
+        <div class="spec-callout">
+          <div class="sc-label">Enclosure Rating</div>
+          <div class="sc-value green">IP54</div>
+          <div class="sc-sub">Outdoor-rated direct install</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specs-table-wrap">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Value / Description</th>
+            <th class="unit-col">Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nominal Voltage</td><td>279 (high-voltage DC bus)</td><td class="unit-cell">VDC</td></tr>
+          <tr><td>Nameplate Energy Capacity</td><td>50</td><td class="unit-cell">kWh</td></tr>
+          <tr><td>Usable Energy (85% DoD)</td><td>42.5</td><td class="unit-cell">kWh</td></tr>
+          <tr><td>Max Rated Power</td><td>25</td><td class="unit-cell">kW</td></tr>
+          <tr><td>Cycle Life</td><td>6,000+ at 80% DoD, 25°C</td><td class="unit-dash">—</td></tr>
+          <tr><td>Cell Type</td><td>Sodium-Ion NFPP (Non-Flammable Polymer Pouch)</td><td class="unit-dash">—</td></tr>
+          <tr><td>Operating Temp (Discharge)</td><td>−40°C to +55°C</td><td class="unit-dash">—</td></tr>
+          <tr><td>Charging Temp Range</td><td>−10°C to +45°C</td><td class="unit-dash">—</td></tr>
+          <tr><td>Design Life</td><td>20 years</td><td class="unit-dash">—</td></tr>
+          <tr><td>Enclosure (IP Rating)</td><td>Outdoor Cabinet — IP54</td><td class="unit-dash">—</td></tr>
+          <tr><td>Thermal Management</td><td>Air-Cooled (No HVAC Required)</td><td class="unit-dash">—</td></tr>
+          <tr><td>BMS Communication</td><td>Integrated BMS, Modbus TCP / CAN Bus</td><td class="unit-dash">—</td></tr>
+          <tr><td>Smart EMS</td><td>EnergiOS™ — Real-time monitoring, TOU scheduling, OTA updates</td><td class="unit-dash">—</td></tr>
+          <tr><td>Auxiliary Systems</td><td>Fire Suppression, Gas Detection, Explosion Venting</td><td class="unit-dash">—</td></tr>
+          <tr><td>Round-Trip Efficiency</td><td>&ge;95%</td><td class="unit-dash">—</td></tr>
+          <tr><td>Self-Discharge</td><td>&lt;3% per month</td><td class="unit-dash">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="specs-bottom">
+      <div class="specs-bottom-col">
+        <div class="sbc-title">Certifications</div>
+        <div class="cert-badges">
+          <span class="cert-badge">UL 1973</span>
+          <span class="cert-badge">UL 9540</span>
+          <span class="cert-badge">UN 38.3</span>
+          <span class="cert-badge">IEC 62619</span>
+        </div>
+        <div class="sbc-note">Cell &amp; Module Level</div>
+      </div>
+      <div class="specs-bottom-col">
+        <div class="sbc-title">UL 9540A Testing</div>
+        <div class="sbc-status-green">Cell: Tested &amp; Passed</div>
+        <div class="sbc-status-blue">Module/System: In Progress</div>
+      </div>
+      <div class="specs-bottom-col">
+        <div class="sbc-title">Warranty</div>
+        <div class="sbc-warranty-line">Cell: 3 Years</div>
+        <div class="sbc-warranty-line">System: 5 Years</div>
+        <div class="sbc-warranty-note">Extended warranty available</div>
+      </div>
+    </div>
+
+    <div class="fat-section">
+      <div class="fat-title">Factory Acceptance Test (FAT) Scope</div>
+      <div class="fat-grid">
+        <div class="fat-item">Visual, Mechanical &amp; Torque Inspection</div>
+        <div class="fat-item">Protections &amp; Isolation Tests</div>
+        <div class="fat-item">Functional &amp; Conditioning Test</div>
+        <div class="fat-item">3 &times; 0.125C Capacity/Energy Verification (85% DOD)</div>
+        <div class="fat-item">Baseline OCV Measurement</div>
+        <div class="fat-item">10 &times; 0.5C Stability Cycles with Power Checks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">Series B &mdash; 279V+ Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+</body>
+</html>
