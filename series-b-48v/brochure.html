@@ -373,9 +373,10 @@
   }
   .uc-col:last-child { border-right: none; }
   .uc-photo {
-    flex: 1;
-    min-height: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
+    flex-shrink: 0;
   }
   .uc-photo img {
     width: 100%;
