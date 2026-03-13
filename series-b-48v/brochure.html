@@ -190,31 +190,39 @@
   .cover-spec-strip {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    background: var(--dark);
+    background: #F5F5F7;
+    padding: 20px 44px;
+    gap: 0;
     flex-shrink: 0;
+    border-top: 1px solid #D8D8D8;
   }
   .cover-spec-item {
-    padding: 10px 8px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border-right: 1px solid #D0D0D0;
   }
   .cover-spec-item:last-child { border-right: none; }
   .cover-spec-val {
-    font-size: 18px;
-    font-weight: 900;
-    color: var(--white);
+    font-size: 22px;
+    font-weight: 800;
+    color: #0A0A0A;
     line-height: 1;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    white-space: nowrap;
   }
-  .cover-spec-val sup { font-size: 10px; font-weight: 700; vertical-align: super; }
+  .cover-spec-val sup { font-size: 11px; font-weight: 700; vertical-align: baseline; position: relative; top: -7px; }
   .cover-spec-val.green { color: var(--green); }
   .cover-spec-lbl {
-    font-size: 7.5px;
+    font-size: 9px;
     font-weight: 600;
+    color: #6E6E73;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.3;
+    text-align: center;
+    line-height: 1.4;
   }
   .cover-footer {
     background: var(--dark);
@@ -570,11 +578,73 @@
   .legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
   /* Partners section */
-  .partners-section { flex-shrink: 0; margin-top: 0; padding-bottom: 8px; }
-  .partners-title { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
-  .partners-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
-  .partner-logo { height: 30px; width: auto; max-width: 110px; object-fit: contain; filter: grayscale(100%); opacity: 0.7; }
-  .partner-logo.tall { height: 34px; }
+  .partners-section { flex-shrink: 0; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--border); }
+  .partners-title { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+  .partners-row { display: flex; gap: 0; align-items: center; margin-bottom: 10px; flex-wrap: nowrap; justify-content: space-between; }
+  .partner-logo { height: 34px; max-width: 110px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.75; }
+  .partner-logo.tall { height: 38px; max-width: 120px; }
+
+  /* ══════════════════════════════════════════
+     PAGE 4 — BANKABLE ECONOMICS
+  ══════════════════════════════════════════ */
+  .economics-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 32px 10px;
+    overflow: hidden;
+    min-height: 0;
+    gap: 0;
+  }
+  .econ-intro-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 3px;
+  }
+  .econ-intro-heading {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  .econ-intro-para {
+    font-size: 10.5px;
+    color: var(--subtext);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .econ-main {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
+    flex-shrink: 0;
+    min-height: 0;
+    align-items: start;
+  }
+  .econ-chart-col { display: flex; flex-direction: column; min-height: 0; }
+  .econ-chart-img { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: var(--white); }
+  .econ-chart-img img { width: 100%; height: auto; display: block; }
+  .econ-chart-caption { font-size: 8.5px; color: var(--subtext); margin-top: 4px; line-height: 1.4; }
+  .econ-chart-caption strong { color: var(--green); font-weight: 700; }
+  .econ-assumptions-col { display: flex; flex-direction: column; }
+  .assumptions-title { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text); margin-bottom: 7px; }
+  .assumptions-table { width: 100%; border-collapse: collapse; font-size: 10px; margin-bottom: 12px; }
+  .assumptions-table tr { border-bottom: 1px solid var(--border); }
+  .assumptions-table td { padding: 5px 0; color: var(--subtext); line-height: 1.3; vertical-align: middle; }
+  .assumptions-table td:first-child { color: var(--mid); font-size: 9.5px; width: 65%; }
+  .assumptions-table td:last-child { font-weight: 700; color: var(--text); text-align: right; font-size: 10px; }
+  .chart-legend-title { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--subtext); margin-bottom: 7px; }
+  .chart-legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 9.5px; color: var(--subtext); line-height: 1.35; }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .econ-inline-stats { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; flex-shrink: 0; }
+  .econ-inline-stat { display: flex; align-items: baseline; gap: 6px; line-height: 1.4; }
+  .econ-inline-stat-val { font-size: 8.5px; font-weight: 700; color: var(--green); white-space: nowrap; }
+  .econ-inline-stat-lbl { font-size: 8.5px; color: var(--subtext); line-height: 1.4; }
 
   /* ══════════════════════════════════════════
      PAGE 4 — TECHNICAL SPECIFICATIONS
@@ -965,7 +1035,7 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     PAGE 3 — SMART EMS + ECONOMICS + PARTNERS
+     PAGE 3 — SMART EMS PLATFORM
 ══════════════════════════════════════════ -->
 <div class="page">
   <div class="inner-header">
@@ -1098,94 +1168,83 @@
         </div>
       </div>
 
-      <!-- Economics -->
-      <div class="econ-section">
-        <div class="econ-section-label">Total Cost of Ownership Advantage</div>
-        <div class="econ-stats-row">
-          <div class="econ-stat-box">
-            <div class="econ-stat-val green">20<span style="font-size:14px;">yr</span></div>
-            <div class="econ-stat-lbl">Design Life<br>vs. 3–5 yr Lead-Acid</div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span class="footer-left">Series B &mdash; 279kWh Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 — BANKABLE ECONOMICS
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Total Cost of Ownership</div>
+        <div class="inner-header-title">Bankable <span class="green">Economics</span></div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+  </div>
+  <div class="header-rule"></div>
+
+  <div class="page-body">
+    <div class="economics-body">
+      <div class="econ-intro-label">System Advantage Over LFP-Based Systems</div>
+      <div class="econ-intro-heading">14% Lower Total Cost of Ownership Over the Project Lifetime</div>
+      <p class="econ-intro-para">Our sodium-ion technology delivers measurable savings through eliminated HVAC requirements, reduced degradation, and lower maintenance, insurance, and permitting costs — validated by real-world deployments, not laboratory projections.</p>
+
+      <div class="econ-main">
+        <div class="econ-chart-col">
+          <div class="econ-chart-img">
+            <img src="assets/tco_chart.png" alt="15-Year Total Cost of Ownership">
           </div>
-          <div class="econ-stat-box">
-            <div class="econ-stat-val">Zero</div>
-            <div class="econ-stat-lbl">Maintenance Cost<br>Over Lifetime</div>
+          <div class="econ-chart-caption">
+            <strong>14% TCoO Savings</strong> — Air-cooled NFPP ($125.9/kWh) vs. Liquid-cooled LFP ($146.2/kWh) over a 15-year project lifetime.
           </div>
-          <div class="econ-stat-box">
-            <div class="econ-stat-val green">6K<span style="font-size:14px;">+</span></div>
-            <div class="econ-stat-lbl">Cycles @ 80% DoD<br>vs. 300–500 Lead-Acid</div>
-          </div>
-          <div class="econ-stat-box">
-            <div class="econ-stat-val">50%</div>
-            <div class="econ-stat-lbl">Demand Charge<br>Reduction Potential</div>
-          </div>
-        </div>
-        <!-- 14% TCoO Chart -->
-        <div class="econ-chart-block">
-          <div class="econ-chart-col">
-            <div class="econ-chart-img">
-              <img src="assets/tco_chart.png" alt="15-Year Total Cost of Ownership">
+          <div class="econ-inline-stats">
+            <div class="econ-inline-stat">
+              <div class="econ-inline-stat-val">$20.3/kWh</div>
+              <div class="econ-inline-stat-lbl">&mdash; Lifetime savings per kWh over project lifetime</div>
             </div>
-            <div class="econ-chart-caption">
-              <strong>14% TCoO Savings</strong> — Air-cooled NFPP ($125.9/kWh) vs. Liquid-cooled LFP ($146.2/kWh) over a 15-year project lifetime.
-            </div>
-            <div class="econ-inline-stats">
-              <div class="econ-inline-stat">
-                <div class="econ-inline-stat-val">$20.3/kWh</div>
-                <div class="econ-inline-stat-lbl">&mdash; Lifetime savings per kWh over project lifetime</div>
-              </div>
-              <div class="econ-inline-stat">
-                <div class="econ-inline-stat-val">20yr</div>
-                <div class="econ-inline-stat-lbl">&mdash; Projected battery life, sodium-ion NFPP chemistry</div>
-              </div>
-            </div>
-          </div>
-          <div class="econ-assumptions-col">
-            <div class="assumptions-title">Model Assumptions</div>
-            <table class="assumptions-table">
-              <tr><td>NFPP installed price delta</td><td>$16/kWh</td></tr>
-              <tr><td>Cycles per year</td><td>365</td></tr>
-              <tr><td>HVAC load delta</td><td>90%</td></tr>
-              <tr><td>Insurance cost delta</td><td>20%</td></tr>
-              <tr><td>Augmentation delta</td><td>20%</td></tr>
-              <tr><td>O&amp;M cost delta</td><td>30%</td></tr>
-              <tr><td>Cell derating / cold temps</td><td>75%</td></tr>
-              <tr><td>Discount rate / NPV calc</td><td>8%</td></tr>
-            </table>
-            <div class="chart-legend-title">Cost Components</div>
-            <div class="chart-legend-grid">
-              <div class="legend-item"><span class="legend-swatch" style="background:#0044BB;"></span>LFP &mdash; CapEx</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#3A8000;"></span>NFPP &mdash; CapEx</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#2266DD;"></span>LFP &mdash; HVAC Load</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#5CB800;"></span>NFPP &mdash; O&amp;M</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#4488EE;"></span>LFP &mdash; O&amp;M</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#8FD430;"></span>NFPP &mdash; Insurance</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#77AAFF;"></span>LFP &mdash; Insurance</div>
-              <div class="legend-item"><span class="legend-swatch" style="background:#AACCFF;"></span>LFP &mdash; Augmentation</div>
+            <div class="econ-inline-stat">
+              <div class="econ-inline-stat-val">20yr</div>
+              <div class="econ-inline-stat-lbl">&mdash; Projected battery life, sodium-ion NFPP chemistry</div>
             </div>
           </div>
         </div>
 
-        <div class="econ-bullets-row">
-          <div class="econ-bullet">
-            <div class="econ-bullet-dot"></div>
-            <div><strong>No replacement costs</strong> &mdash; 20-year design life eliminates the 3–4 lead-acid replacement cycles over the same period.</div>
-          </div>
-          <div class="econ-bullet">
-            <div class="econ-bullet-dot"></div>
-            <div><strong>Zero maintenance overhead</strong> &mdash; no watering, no equalization, no acid spill cleanup, no HVAC servicing.</div>
-          </div>
-          <div class="econ-bullet">
-            <div class="econ-bullet-dot"></div>
-            <div><strong>ITC eligible</strong> &mdash; qualifies for 30% federal Investment Tax Credit when paired with solar PV systems.</div>
-          </div>
-          <div class="econ-bullet">
-            <div class="econ-bullet-dot"></div>
-            <div><strong>Utility incentives</strong> &mdash; GridIQ&trade; enables demand response and VPP revenue participation for additional income streams.</div>
+        <div class="econ-assumptions-col">
+          <div class="assumptions-title">Model Assumptions</div>
+          <table class="assumptions-table">
+            <tr><td>NFPP installed price delta</td><td>$16/kWh</td></tr>
+            <tr><td>Cycles per year</td><td>365</td></tr>
+            <tr><td>HVAC load delta</td><td>90%</td></tr>
+            <tr><td>Insurance cost delta</td><td>20%</td></tr>
+            <tr><td>Augmentation delta</td><td>20%</td></tr>
+            <tr><td>O&amp;M cost delta</td><td>30%</td></tr>
+            <tr><td>Cell derating / cold temps</td><td>75%</td></tr>
+            <tr><td>Discount rate / NPV calc</td><td>8%</td></tr>
+          </table>
+
+          <div class="chart-legend-title">Cost Components</div>
+          <div class="chart-legend-grid">
+            <div class="legend-item"><span class="legend-swatch" style="background:#0044BB;"></span>LFP &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#3A8000;"></span>NFPP &mdash; CapEx</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#2266DD;"></span>LFP &mdash; HVAC Load</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#5CB800;"></span>NFPP &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#4488EE;"></span>LFP &mdash; O&amp;M</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#8FD430;"></span>NFPP &mdash; Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#77AAFF;"></span>LFP &mdash; Insurance</div>
+            <div class="legend-item"><span class="legend-swatch" style="background:#AACCFF;"></span>LFP &mdash; Augmentation</div>
           </div>
         </div>
       </div>
 
-      <!-- R&D Partners -->
       <div class="partners-section">
         <div class="partners-title">Research &amp; Development Partners</div>
         <div class="partners-row">
@@ -1203,9 +1262,9 @@
           <img class="partner-logo tall" src="assets/partners/cradle_to_commerce.png" alt="Cradle to Commerce">
         </div>
       </div>
-
     </div>
   </div>
+
   <div class="page-footer">
     <span class="footer-left">Series B &mdash; 279kWh Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
     <span class="footer-center">www.CoulombTechnology.com</span>
@@ -1214,7 +1273,7 @@
 </div>
 
 <!-- ══════════════════════════════════════════
-     PAGE 4 — TECHNICAL SPECIFICATIONS
+     PAGE 5 — TECHNICAL SPECIFICATIONS
 ══════════════════════════════════════════ -->
 <div class="page">
   <div class="inner-header">
@@ -1238,27 +1297,27 @@
       <div class="specs-callouts">
         <div class="spec-callout">
           <div class="sc-label">Nameplate Energy</div>
-          <div class="sc-value green">279<span style="font-size:13px;font-weight:700;">kWh</span></div>
-          <div class="sc-sub">Nameplate energy capacity</div>
+          <div class="sc-value green">279<span style="font-size:14px;font-weight:700;">kWh</span></div>
+          <div class="sc-sub">229 kWh usable at 85% DOD</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Guaranteed Min Power</div>
-          <div class="sc-value dark" style="font-size:20px;">125<span style="font-size:12px;font-weight:700;">kW</span></div>
-          <div class="sc-sub">Guaranteed minimum power output</div>
+          <div class="sc-label">Max Rated Power</div>
+          <div class="sc-value dark">140<span style="font-size:14px;font-weight:700;">kW</span></div>
+          <div class="sc-sub">125 kW guaranteed constant</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Cycle Life</div>
-          <div class="sc-value blue">6K<span style="font-size:13px;font-weight:700;">+</span></div>
-          <div class="sc-sub">At 80% DoD, 25&deg;C</div>
+          <div class="sc-label">DC Voltage Range</div>
+          <div class="sc-value blue" style="font-size:20px;">634–994<span style="font-size:13px;font-weight:700;">V</span></div>
+          <div class="sc-sub">Flexible inverter compatibility</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Nominal Voltage</div>
-          <div class="sc-value dark">821<span style="font-size:13px;font-weight:700;">V</span></div>
-          <div class="sc-sub">High-voltage DC bus</div>
+          <div class="sc-label">Duration Range</div>
+          <div class="sc-value dark">2.2–10<span style="font-size:14px;font-weight:700;">hr</span></div>
+          <div class="sc-sub">Peak shaving to long backup</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Operating Temp</div>
-          <div class="sc-value dark" style="font-size:18px;">−40/+55<span style="font-size:11px;font-weight:700;">°C</span></div>
+          <div class="sc-label">Operating Temperature</div>
+          <div class="sc-value dark" style="font-size:18px;">−40/+55<span style="font-size:12px;font-weight:700;">°C</span></div>
           <div class="sc-sub">No HVAC — any climate</div>
         </div>
         <div class="spec-callout">
@@ -1279,10 +1338,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Nominal Voltage</td><td>279 (high-voltage DC bus)</td><td class="unit-cell">VDC</td></tr>
-          <tr><td>Nameplate Energy Capacity</td><td>50</td><td class="unit-cell">kWh</td></tr>
-          <tr><td>Usable Energy (85% DoD)</td><td>42.5</td><td class="unit-cell">kWh</td></tr>
-          <tr><td>Max Rated Power</td><td>25</td><td class="unit-cell">kW</td></tr>
+          <tr><td>Nameplate Energy Capacity</td><td>279</td><td class="unit-cell">kWh</td></tr>
+          <tr><td>Usable Energy (85% DoD)</td><td>229</td><td class="unit-cell">kWh</td></tr>
+          <tr><td>Max Rated Power</td><td>140</td><td class="unit-cell">kW</td></tr>
+          <tr><td>Guaranteed Constant Power</td><td>125</td><td class="unit-cell">kW</td></tr>
+          <tr><td>DC Voltage Range</td><td>634 – 994</td><td class="unit-cell">VDC</td></tr>
+          <tr><td>Duration</td><td>2.2 – 10</td><td class="unit-cell">Hours</td></tr>
           <tr><td>Cycle Life</td><td>6,000+ at 80% DoD, 25°C</td><td class="unit-dash">—</td></tr>
           <tr><td>Cell Type</td><td>Sodium-Ion NFPP (Non-Flammable Polymer Pouch)</td><td class="unit-dash">—</td></tr>
           <tr><td>Operating Temp (Discharge)</td><td>−40°C to +55°C</td><td class="unit-dash">—</td></tr>
