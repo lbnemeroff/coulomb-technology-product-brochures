@@ -158,21 +158,23 @@
   }
   /* Cover Title */
   .cover-title-block {
-    padding: 16px 44px 0;
+    padding: 16px 44px 8px;
     flex-shrink: 0;
+    z-index: 2;
+    position: relative;
   }
   .cover-title {
-    font-size: 54px;
+    font-size: 48px;
     font-weight: 800;
     color: #0A0A0A;
-    line-height: 1.0;
+    line-height: 1.05;
     letter-spacing: -0.03em;
   }
   /* Cover Image Zone */
   .cover-image-zone {
-    height: 560px;
-    min-height: 560px;
-    max-height: 560px;
+    height: 530px;
+    min-height: 530px;
+    max-height: 530px;
     background: #FFFFFF;
     display: flex;
     align-items: center;
@@ -852,27 +854,19 @@
   <div class="cover-spec-strip">
     <div class="cover-spec-item">
       <div class="cover-spec-val green">279<sup>kWh</sup></div>
-      <div class="cover-spec-lbl">Nameplate<br>Energy</div>
+      <div class="cover-spec-lbl">Energy<br>Capacity</div>
     </div>
     <div class="cover-spec-item">
-      <div class="cover-spec-val green">229<sup>kWh</sup></div>
-      <div class="cover-spec-lbl">Usable<br>(85% DoD)</div>
+      <div class="cover-spec-val green">125<sup>kW</sup></div>
+      <div class="cover-spec-lbl">Guaranteed<br>Min Power</div>
     </div>
     <div class="cover-spec-item">
-      <div class="cover-spec-val green">140<sup>kW</sup></div>
-      <div class="cover-spec-lbl">Max Rated<br>Power</div>
-    </div>
-    <div class="cover-spec-item">
-      <div class="cover-spec-val green">14<sup>%</sup></div>
-      <div class="cover-spec-lbl">Lower TCoO<br>vs. LFP</div>
-    </div>
-    <div class="cover-spec-item">
-      <div class="cover-spec-val" style="font-size:16px;">634–994<sup>V</sup></div>
+      <div class="cover-spec-val green" style="font-size:16px;">634–994<sup>V</sup></div>
       <div class="cover-spec-lbl">DC Voltage<br>Range</div>
     </div>
     <div class="cover-spec-item">
-      <div class="cover-spec-val" style="font-size:18px;">2.2–10<sup>hr</sup></div>
-      <div class="cover-spec-lbl">Duration<br>Range</div>
+      <div class="cover-spec-val green">6K<sup>+</sup></div>
+      <div class="cover-spec-lbl">Cycle Life<br>@ 80% DoD</div>
     </div>
     <div class="cover-spec-item">
       <div class="cover-spec-val" style="font-size:16px;">−40/+55<sup>°C</sup></div>
@@ -881,6 +875,14 @@
     <div class="cover-spec-item">
       <div class="cover-spec-val">IP54</div>
       <div class="cover-spec-lbl">Enclosure<br>Rating</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val" style="font-size:16px;">20<sup>yr</sup></div>
+      <div class="cover-spec-lbl">Design<br>Life</div>
+    </div>
+    <div class="cover-spec-item">
+      <div class="cover-spec-val green">Smart</div>
+      <div class="cover-spec-lbl">EnergiOS™<br>Enabled</div>
     </div>
   </div>
 
@@ -1014,9 +1016,9 @@
       <div class="uc-col">
         <div class="uc-photo"><img src="assets/uc_material_handling.jpg" alt="Material Handling and Fleet"></div>
         <div class="uc-text">
-          <div class="uc-category">Forklift / Warehouse / Port / Airport</div>
+          <div class="uc-category">Warehouse / Port / Airport</div>
           <div class="uc-title">Material Handling &amp; Fleet</div>
-          <p class="uc-desc">Fast charging and extreme temp tolerance for 24/7 operations — forklift fleets, warehouse automation, port equipment, and airport ground support.</p>
+          <p class="uc-desc">Fast charging and extreme temp tolerance for 24/7 operations — warehouse automation, port equipment, and airport ground support.</p>
         </div>
       </div>
       <div class="uc-col">
@@ -1062,27 +1064,27 @@
       </div>
       <div class="specs-callouts">
         <div class="spec-callout">
-          <div class="sc-label">Nameplate Energy</div>
+
           <div class="sc-value green">279<span style="font-size:14px;font-weight:700;">kWh</span></div>
-          <div class="sc-sub">229 kWh usable at 85% DOD</div>
+          <div class="sc-sub">Energy Capacity</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Max Rated Power</div>
+
           <div class="sc-value dark">140<span style="font-size:14px;font-weight:700;">kW</span></div>
           <div class="sc-sub">125 kW guaranteed constant</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">DC Voltage Range</div>
+
           <div class="sc-value blue" style="font-size:20px;">634–994<span style="font-size:13px;font-weight:700;">V</span></div>
-          <div class="sc-sub">Flexible inverter compatibility</div>
+          <div class="sc-sub">DC Voltage Range</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Duration Range</div>
+
           <div class="sc-value dark">2.2–10<span style="font-size:14px;font-weight:700;">hr</span></div>
           <div class="sc-sub">Peak shaving to long backup</div>
         </div>
         <div class="spec-callout">
-          <div class="sc-label">Operating Temperature</div>
+
           <div class="sc-value dark" style="font-size:18px;">−40/+55<span style="font-size:12px;font-weight:700;">°C</span></div>
           <div class="sc-sub">No HVAC — any climate</div>
         </div>
