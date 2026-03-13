@@ -413,19 +413,20 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 14px 32px 0;
+    padding: 14px 32px 16px;
     min-height: 0;
     justify-content: space-between;
+    gap: 0;
   }
 
   /* EMS intro */
-  .ems-intro { margin-bottom: 10px; flex-shrink: 0; }
+  .ems-intro { margin-bottom: 0; flex-shrink: 0; }
   .ems-intro-label { font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
   .ems-intro-heading { font-size: 17px; font-weight: 900; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
   .ems-intro-para { font-size: 9.5px; color: var(--subtext); line-height: 1.55; }
 
   /* EMS 3-card grid */
-  .ems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex-shrink: 0; }
+  .ems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; flex-shrink: 0; }
   .ems-card {
     border: 1px solid var(--border);
     border-radius: 5px;
@@ -455,17 +456,17 @@
   }
   .ems-card-title span { color: var(--green); }
   .ems-card-screen {
-    height: 120px;
+    height: 240px;
     overflow: hidden;
     flex-shrink: 0;
     background: #0A0A0A;
   }
   .ems-card-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .ems-card-body { padding: 8px 12px 10px; flex: 1; }
-  .ems-card-desc { font-size: 9px; color: var(--subtext); line-height: 1.55; margin-bottom: 7px; }
+  .ems-card-body { padding: 10px 14px 14px; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 10px; }
+  .ems-card-desc { font-size: 10px; color: var(--subtext); line-height: 1.6; margin-bottom: 0; }
   .ems-card-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0; }
   .ems-card-features li {
-    font-size: 8.5px;
+    font-size: 9.5px;
     color: var(--subtext);
     display: flex;
     align-items: flex-start;
@@ -490,30 +491,30 @@
   .bms-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
+    gap: 10px;
   }
   .bms-item {
     background: #F5F5F7;
     border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 9px 10px;
+    border-radius: 6px;
+    padding: 14px 14px;
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 10px;
   }
   .bms-icon {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
     background: var(--dark);
-    border-radius: 4px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
   .bms-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     fill: none;
     stroke: var(--green);
     stroke-width: 1.8;
@@ -521,7 +522,7 @@
     stroke-linejoin: round;
   }
   .bms-label {
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 700;
     color: var(--text);
     line-height: 1.3;
