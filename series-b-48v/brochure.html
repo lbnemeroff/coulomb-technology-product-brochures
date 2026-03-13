@@ -799,6 +799,78 @@
   .sbc-warranty-line { font-size: 10px; color: var(--text); margin-bottom: 2px; }
   .sbc-warranty-note { font-size: 8.5px; color: var(--subtext); }
 
+  /* ══════════════════════════════════════════
+     PAGE 6 — TECHNOLOGY COMPARISON
+  ══════════════════════════════════════════ */
+  .comparison-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 32px 12px;
+    overflow: hidden;
+  }
+  .comparison-intro-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .comparison-intro-heading {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 7px;
+    line-height: 1.2;
+  }
+  .comparison-intro-para {
+    font-size: 11px;
+    color: var(--subtext);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5px;
+    flex: 1;
+  }
+  .comparison-table thead tr { background: var(--dark); }
+  .comparison-table thead th {
+    padding: 9px 16px;
+    text-align: left;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .comparison-table thead th.nfpp-col { color: var(--green); }
+  .comparison-table thead th.lead-col { color: rgba(255,255,255,0.6); }
+  .comparison-table tbody tr:nth-child(even) { background: #F7F7F7; }
+  .comparison-table td {
+    padding: 7px 16px;
+    border-bottom: 1px solid #EBEBEB;
+    color: var(--text);
+    line-height: 1.4;
+    vertical-align: middle;
+  }
+  .comparison-table td:first-child { font-weight: 600; color: var(--mid); width: 28%; }
+  .comparison-table td.win     { color: var(--green); font-weight: 700; }
+  .comparison-table td.neutral { color: #888888; }
+  .comparison-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-shrink: 0;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .comp-stat { padding: 4px 16px 8px; text-align: center; }
+  .comp-stat-value { font-size: 36px; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 5px; }
+  .comp-stat-label { font-size: 9px; color: var(--subtext); line-height: 1.4; }
+
   /* FAT section */
   .fat-section {
     background: var(--blue);
@@ -1394,6 +1466,85 @@
         <div class="fat-item">3 &times; 0.125C Capacity/Energy Verification (85% DOD)</div>
         <div class="fat-item">Baseline OCV Measurement</div>
         <div class="fat-item">10 &times; 0.5C Stability Cycles with Power Checks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-left">Series B &mdash; 279kWh Smart Battery Cabinet &nbsp;|&nbsp; Rev. 1.0</span>
+    <span class="footer-center">www.CoulombTechnology.com</span>
+    <span class="footer-right">sales@coulombtechnology.com &nbsp;|&nbsp; 208-768-8888</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 6 — TECHNOLOGY COMPARISON
+══════════════════════════════════════════ -->
+<div class="page">
+  <div class="inner-header">
+    <div class="inner-header-top">
+      <div>
+        <div class="inner-header-section">Technology Comparison</div>
+        <div class="inner-header-title">Sodium-Ion NFPP <span class="green">vs. Lead-Acid</span></div>
+      </div>
+      <img class="inner-header-logo" src="assets/coulomb_logo_white_transparent.png" alt="Coulomb Technology">
+    </div>
+    <div class="inner-header-pills">
+      <span class="inner-header-pill">Performance</span>
+      <span class="inner-header-pill">Safety</span>
+      <span class="inner-header-pill">Total Cost of Ownership</span>
+    </div>
+  </div>
+  <div class="header-rule"></div>
+
+  <div class="page-body">
+    <div class="comparison-body">
+      <div class="comparison-intro-label">Why Sodium-Ion NFPP Outperforms Legacy Lead-Acid Technology</div>
+      <div class="comparison-intro-heading">A Clear Advantage Across Every Performance Dimension</div>
+      <p class="comparison-intro-para">Coulomb Technology's Sodium-Ion NFPP chemistry delivers superior cycle life, wider operating temperature range, zero maintenance, and a fundamentally safer chemistry &mdash; making it the ideal replacement for lead-acid in critical commercial and industrial applications.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="nfpp-col">Sodium-Ion NFPP</th>
+            <th class="lead-col">Lead-Acid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cycle Life</td><td class="win">3,000+ cycles @ 80% DoD</td><td class="neutral">300&ndash;500 cycles @ 50% DoD</td></tr>
+          <tr><td>Weight (100Ah)</td><td class="win">13 kg (28.7 lb)</td><td class="neutral">~22 kg (48.5 lb)</td></tr>
+          <tr><td>Usable Capacity</td><td class="win">80&ndash;100% DoD</td><td class="neutral">50% DoD (to preserve life)</td></tr>
+          <tr><td>Discharge Temp Range</td><td class="win">&minus;40&deg;C to +60&deg;C</td><td class="neutral">&minus;20&deg;C to +50&deg;C</td></tr>
+          <tr><td>Charge Temp Range</td><td class="win">&minus;10&deg;C to +45&deg;C</td><td class="neutral">0&deg;C to +40&deg;C</td></tr>
+          <tr><td>Maintenance</td><td class="win">Zero maintenance</td><td class="neutral">Regular watering &amp; equalization</td></tr>
+          <tr><td>Self-Discharge</td><td class="win">&lt;3% per month</td><td class="neutral">5&ndash;15% per month</td></tr>
+          <tr><td>Charging Efficiency</td><td class="win">~95%</td><td class="neutral">~75%</td></tr>
+          <tr><td>Thermal Runaway Risk</td><td class="win">Zero risk</td><td class="neutral">Low risk</td></tr>
+          <tr><td>Toxic Gas Emissions</td><td class="win">None</td><td class="neutral">Hydrogen gas during charging</td></tr>
+          <tr><td>Memory Effect</td><td class="win">None</td><td class="neutral">Sulfation if undercharged</td></tr>
+          <tr><td>Lifespan</td><td class="win">10+ years</td><td class="neutral">3&ndash;5 years</td></tr>
+          <tr><td>Environmental Impact</td><td class="win">Non-toxic, recyclable</td><td class="neutral">Lead &amp; acid hazardous</td></tr>
+        </tbody>
+      </table>
+
+      <div class="comparison-stats">
+        <div class="comp-stat">
+          <div class="comp-stat-value">10&times;</div>
+          <div class="comp-stat-label">Longer cycle life<br>vs. lead-acid</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">40%</div>
+          <div class="comp-stat-label">Lighter weight<br>per 100Ah</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">Zero</div>
+          <div class="comp-stat-label">Maintenance<br>required</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-value">95%</div>
+          <div class="comp-stat-label">Round-trip<br>efficiency</div>
+        </div>
       </div>
     </div>
   </div>
